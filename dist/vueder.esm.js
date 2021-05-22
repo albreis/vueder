@@ -767,8 +767,5 @@ if (GlobalVue) {
 	GlobalVue.use(plugin);
 }
 
-// To allow use as module (npm/webpack/etc.) export component
-var wrapper = __vue_component__.default;
-
-export default wrapper;
+export default __vue_component__;
 export { install };
