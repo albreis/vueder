@@ -1,6 +1,6 @@
 module.exports = {
+  publicPath: process.env.NODE_ENV === 'production' ? '/vueder/' : '/',
   devServer: {
-        public: '/vueder/',
         host: 'everaldoreis.com.br',
         https: false,
         disableHostCheck: true
