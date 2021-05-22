@@ -1,0 +1,26 @@
+{
+  "name": "vueder",
+  "version": "1.0.0",
+  "description": "Criador de formulário baseado em objetos para VueJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albreis/vueder.git"
+  },
+  "keywords": [
+    "vuejs",
+    "form",
+    "builder",
+    "form",
+    "builder"
+  ],
+  "author": "ER Soluções Web LTDA <contato@ersolucoesweb.com.br>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/albreis/vueder/issues"
+  },
+  "homepage": "https://github.com/albreis/vueder#readme"
+}
