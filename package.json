@@ -43,11 +43,11 @@
     "rollup-plugin-vue": "^5.0.1",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
-    "validate.js": "^0.13.1",
     "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^5.37.1"
   },
   "dependencies": {
-    "webpack": "^5.37.1"
+    "validate.js": "^0.13.1"
   }
 }
