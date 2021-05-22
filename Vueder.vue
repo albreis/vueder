@@ -4,7 +4,7 @@
             <fieldset v-for="(fieldset, key) in fieldsets" :key="key" class="row">
                 <legend v-if="fieldset.legend" class="col-12">{{fieldset.legend}}</legend>
                 <div class="fields">
-                    <div class="field" :data-error="validate(field)" v-for="(field, key_field) in fieldset.fields" :key="key_field" :class="`col-${field.size.desktop} col-m-${field.size.mobile}`">
+                    <div class="field" :data-error="validate(field)" v-for="(field, key_field) in fieldset.fields" :key="key_field" :class="field.class">
                         <label v-if="field.label" v-html="field.label"></label>
                         <template v-if="field.type == 'select'">
                             <select v-on="field.events ? field.events(field, fieldsets, model) : {}" :name="field.name" v-model="field.value" @input="model[field.name] = field.value">
