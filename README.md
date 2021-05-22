@@ -117,7 +117,7 @@ let Form = {
                                     cidades[i] = {label: {text: res.data[i].nome}, value: res.data[i].nome}
                                 }
                             }
-                            form.endereco.fields.cidade.options = () => cidades
+                            form.dados.fields.cidade.options = () => cidades
                         }
                     }
                 }

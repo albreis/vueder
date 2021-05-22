@@ -1,6 +1,6 @@
 {
   "name": "vueder",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Criador de formulário baseado em objetos para VueJS",
   "main": "index.js",
   "module": "dist/vueder.esm.js",
