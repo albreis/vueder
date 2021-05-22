@@ -96,35 +96,25 @@ let Form = {
                 attrs: {
                     class: 'row'
                 },
-                options: async function(field, form, model) {
+                options: async function(field, form, model) { 
                     // Retorna opções de forma sincrona usando axios
                     // Deve ser usado dessa forma para chamada de recursos externos
                     var res = await window.axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
                     let estados = {}
                     for(let i in res.data) {
-                        estados[i] = {label: {
-                            text: res.data[i].nome, value: res.data[i].sigla,
-                            attrs: {
-                                class: 'col-12'
-                            }
-                    }}
+                        estados[i] = {label: {text: res.data[i].nome}, value: res.data[i].sigla}
                     }
                     this.options = (field, form, model) => estados
                 },
                 events (field, form, model) {
                     return {
-                        // No evento 'change' do select de estado ele busca as cidades
                         change: async function(event) {
+                            // Ao alterar o input de estado ele busca as cidades
                             let cidades = {}
                             if(model.estado) {
                                 var res = await window.axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${model.estado.toLowerCase()}/municipios?orderBy=nome`)
                                 for(let i in res.data) {
-                                    cidades[i] = {label: {
-                                        text: res.data[i].nome, value: res.data[i].nome,
-                                        attrs: {
-                                            class: 'col-12'
-                                        }
-                                }}
+                                    cidades[i] = {label: {text: res.data[i].nome}, value: res.data[i].nome}
                                 }
                             }
                             form.endereco.fields.cidade.options = () => cidades
