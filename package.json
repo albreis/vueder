@@ -6,7 +6,7 @@
   "module": "dist/vueder.esm.js",
   "unpkg": "dist/vueder.min.js",
   "browser": {
-    "./sfc": "src/vueder.vue"
+    "./sfc": "src/Vueder.vue"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
