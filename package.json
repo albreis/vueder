@@ -11,7 +11,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "vue-cli-service serve",
-    "build": "npm run build:umd & npm run build:es & npm run build:unpkg & npm run build:doc",
+    "build": "npm run build:umd && npm run build:es && npm run build:unpkg && npm run build:doc",
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vueder.umd.js",
     "build:es": "rollup --config build/rollup.config.js --format es --file dist/vueder.esm.js",
     "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vueder.min.js",
@@ -20,8 +20,8 @@
     "commit:patch": "npm version patch --no-git-tag-version --force",
     "commit:minor": "npm version minor --no-git-tag-version --force",
     "commit:major": "npm version major --no-git-tag-version --force",
-    "precommit": "npm run build & git add .",
-    "postcommit": "git push origin master & git status & npm publish",
+    "precommit": "npm run build && git add .",
+    "postcommit": "git push origin master && git status && commit:minor && npm publish",
     "commit": "git commit -m "
   },
   "repository": {
