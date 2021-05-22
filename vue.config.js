@@ -1,6 +1,6 @@
 module.exports = {
   devServer: {
-        publicPath: '/vueder/',
+        public: '/vueder/',
         host: 'everaldoreis.com.br',
         https: false,
         disableHostCheck: true
