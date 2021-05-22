@@ -1,6 +1,6 @@
 {
   "name": "vueder",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Criador de formulário baseado em objetos para VueJS",
   "main": "index.js",
   "scripts": {
