@@ -157,3 +157,13 @@ let Form = {
 ```
 
 Para endetender como as validações funcionam veja: https://validatejs.org/
+
+## Sistema de grid
+
+O Vueder possui um grid system interno bem simples baseado em 12 colunas.
+
+.col-[1-12] para desktop
+
+.col-m-[1-12] para mobile (abaixo de 800px)
+
+As col-* precisam estar abaixo de uma .row para funcionar

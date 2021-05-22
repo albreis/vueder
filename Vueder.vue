@@ -105,6 +105,9 @@ form
                     select
                     textarea
                         background #faa
+                    &:after
+                        content attr(data-error)
+                        color red
             select
             [type="text"]
             [type="password"]
