@@ -199,150 +199,49 @@
                     )
                   : _vm._e(),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "fields" },
-                  _vm._l(fieldset.fields, function(field, key_field) {
-                    return _c(
-                      "div",
-                      _vm._b(
-                        {
-                          key: key_field,
-                          staticClass: "field",
-                          attrs: { "data-error": _vm.validate(field) }
-                        },
+                fieldset && fieldset.fields
+                  ? [
+                      _c(
                         "div",
-                        field.attrs,
-                        false
-                      ),
-                      [
-                        field.label && field.type != "button"
-                          ? _c(
-                              "label",
-                              _vm._b(
-                                {
-                                  domProps: { innerHTML: _vm._s(field.label.text) }
-                                },
-                                "label",
-                                field.label.attrs,
-                                false
-                              )
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          _vm._b({}, "div", field.container_attrs, false),
-                          [
-                            field.type == "select"
-                              ? [
-                                  _c(
-                                    "select",
-                                    _vm._g(
-                                      _vm._b(
-                                        {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: field.value,
-                                              expression: "field.value"
-                                            }
-                                          ],
-                                          attrs: { name: field.name },
-                                          on: {
-                                            change: [
-                                              function($event) {
-                                                var $$selectedVal = Array.prototype.filter
-                                                  .call(
-                                                    $event.target.options,
-                                                    function(o) {
-                                                      return o.selected
-                                                    }
-                                                  )
-                                                  .map(function(o) {
-                                                    var val =
-                                                      "_value" in o
-                                                        ? o._value
-                                                        : o.value;
-                                                    return val
-                                                  });
-                                                _vm.$set(
-                                                  field,
-                                                  "value",
-                                                  $event.target.multiple
-                                                    ? $$selectedVal
-                                                    : $$selectedVal[0]
-                                                );
-                                              },
-                                              function($event) {
-                                                _vm.model[field.name] = field.value;
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "select",
-                                        field.input_attrs,
-                                        false
-                                      ),
-                                      field.events
-                                        ? field.events(
-                                            field,
-                                            _vm.fieldsets,
-                                            _vm.model
-                                          )
-                                        : {}
-                                    ),
-                                    [
-                                      field.options
-                                        ? _vm._l(
-                                            field.options(
-                                              field,
-                                              _vm.fieldsets,
-                                              _vm.model
-                                            ),
-                                            function(option, key_option) {
-                                              return _c(
-                                                "option",
-                                                {
-                                                  key: key_option,
-                                                  domProps: { value: option.value }
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                                        " +
-                                                      _vm._s(option.label.text) +
-                                                      "\n                                    "
-                                                  )
-                                                ]
-                                              )
-                                            }
-                                          )
-                                        : _vm._e()
-                                    ],
-                                    2
-                                  )
-                                ]
-                              : _vm._e(),
-                            _vm._v(" "),
-                            field.type == "radio" && field.options
-                              ? _vm._l(
-                                  field.options(field, _vm.fieldsets, _vm.model),
-                                  function(option, key_option) {
-                                    return _c(
+                        { staticClass: "fields" },
+                        _vm._l(fieldset.fields, function(field, key_field) {
+                          return _c(
+                            "div",
+                            _vm._b(
+                              {
+                                key: key_field,
+                                staticClass: "field",
+                                attrs: { "data-error": _vm.validate(field) }
+                              },
+                              "div",
+                              field.attrs,
+                              false
+                            ),
+                            [
+                              field.label && field.type != "button"
+                                ? _c(
+                                    "label",
+                                    _vm._b(
+                                      {
+                                        domProps: {
+                                          innerHTML: _vm._s(field.label.text)
+                                        }
+                                      },
                                       "label",
-                                      _vm._b(
-                                        {
-                                          key: key_option,
-                                          attrs: { value: option.value }
-                                        },
-                                        "label",
-                                        option.attrs,
-                                        false
-                                      ),
-                                      [
+                                      field.label.attrs,
+                                      false
+                                    )
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                _vm._b({}, "div", field.container_attrs, false),
+                                [
+                                  field.type == "select"
+                                    ? [
                                         _c(
-                                          "input",
+                                          "select",
                                           _vm._g(
                                             _vm._b(
                                               {
@@ -354,29 +253,392 @@
                                                     expression: "field.value"
                                                   }
                                                 ],
-                                                attrs: { type: "radio" },
-                                                domProps: {
-                                                  value: option.value,
-                                                  checked: _vm._q(
-                                                    field.value,
-                                                    option.value
-                                                  )
-                                                },
+                                                attrs: { name: field.name },
                                                 on: {
-                                                  input: function($event) {
-                                                    _vm.model[field.name] =
-                                                      field.value;
-                                                  },
-                                                  change: function($event) {
-                                                    return _vm.$set(
-                                                      field,
-                                                      "value",
-                                                      option.value
-                                                    )
-                                                  }
+                                                  change: [
+                                                    function($event) {
+                                                      var $$selectedVal = Array.prototype.filter
+                                                        .call(
+                                                          $event.target.options,
+                                                          function(o) {
+                                                            return o.selected
+                                                          }
+                                                        )
+                                                        .map(function(o) {
+                                                          var val =
+                                                            "_value" in o
+                                                              ? o._value
+                                                              : o.value;
+                                                          return val
+                                                        });
+                                                      _vm.$set(
+                                                        field,
+                                                        "value",
+                                                        $event.target.multiple
+                                                          ? $$selectedVal
+                                                          : $$selectedVal[0]
+                                                      );
+                                                    },
+                                                    function($event) {
+                                                      _vm.model[field.name] =
+                                                        field.value;
+                                                    }
+                                                  ]
                                                 }
                                               },
+                                              "select",
+                                              field.input_attrs,
+                                              false
+                                            ),
+                                            field.events
+                                              ? field.events(
+                                                  field,
+                                                  _vm.fieldsets,
+                                                  _vm.model
+                                                )
+                                              : {}
+                                          ),
+                                          [
+                                            field.options
+                                              ? _vm._l(
+                                                  field.options(
+                                                    field,
+                                                    _vm.fieldsets,
+                                                    _vm.model
+                                                  ),
+                                                  function(option, key_option) {
+                                                    return _c(
+                                                      "option",
+                                                      {
+                                                        key: key_option,
+                                                        domProps: {
+                                                          value: option.value
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n                                            " +
+                                                            _vm._s(
+                                                              option.label.text
+                                                            ) +
+                                                            "\n                                        "
+                                                        )
+                                                      ]
+                                                    )
+                                                  }
+                                                )
+                                              : _vm._e()
+                                          ],
+                                          2
+                                        )
+                                      ]
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  field.type == "radio" && field.options
+                                    ? _vm._l(
+                                        field.options(
+                                          field,
+                                          _vm.fieldsets,
+                                          _vm.model
+                                        ),
+                                        function(option, key_option) {
+                                          return _c(
+                                            "label",
+                                            _vm._b(
+                                              {
+                                                key: key_option,
+                                                attrs: { value: option.value }
+                                              },
+                                              "label",
+                                              option.attrs,
+                                              false
+                                            ),
+                                            [
+                                              _c(
+                                                "input",
+                                                _vm._g(
+                                                  _vm._b(
+                                                    {
+                                                      directives: [
+                                                        {
+                                                          name: "model",
+                                                          rawName: "v-model",
+                                                          value: field.value,
+                                                          expression: "field.value"
+                                                        }
+                                                      ],
+                                                      attrs: { type: "radio" },
+                                                      domProps: {
+                                                        value: option.value,
+                                                        checked: _vm._q(
+                                                          field.value,
+                                                          option.value
+                                                        )
+                                                      },
+                                                      on: {
+                                                        input: function($event) {
+                                                          _vm.model[field.name] =
+                                                            field.value;
+                                                        },
+                                                        change: function($event) {
+                                                          return _vm.$set(
+                                                            field,
+                                                            "value",
+                                                            option.value
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    "input",
+                                                    field.input_attrs,
+                                                    false
+                                                  ),
+                                                  field.events
+                                                    ? field.events(
+                                                        field,
+                                                        _vm.fieldsets,
+                                                        _vm.model
+                                                      )
+                                                    : {}
+                                                )
+                                              ),
+                                              _vm._v(" "),
+                                              _c("span", [
+                                                _vm._v(_vm._s(option.label.text))
+                                              ])
+                                            ]
+                                          )
+                                        }
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  field.type == "text" ||
+                                  field.type == "password" ||
+                                  field.type == "email" ||
+                                  field.type == "tel" ||
+                                  field.type == "number"
+                                    ? [
+                                        field.type === "checkbox"
+                                          ? _c(
                                               "input",
+                                              _vm._g(
+                                                _vm._b(
+                                                  {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value: field.value,
+                                                        expression: "field.value"
+                                                      }
+                                                    ],
+                                                    attrs: { type: "checkbox" },
+                                                    domProps: {
+                                                      checked: Array.isArray(
+                                                        field.value
+                                                      )
+                                                        ? _vm._i(
+                                                            field.value,
+                                                            null
+                                                          ) > -1
+                                                        : field.value
+                                                    },
+                                                    on: {
+                                                      input: function($event) {
+                                                        _vm.model[field.name] =
+                                                          field.value;
+                                                      },
+                                                      change: function($event) {
+                                                        var $$a = field.value,
+                                                          $$el = $event.target,
+                                                          $$c = $$el.checked
+                                                            ? true
+                                                            : false;
+                                                        if (Array.isArray($$a)) {
+                                                          var $$v = null,
+                                                            $$i = _vm._i($$a, $$v);
+                                                          if ($$el.checked) {
+                                                            $$i < 0 &&
+                                                              _vm.$set(
+                                                                field,
+                                                                "value",
+                                                                $$a.concat([$$v])
+                                                              );
+                                                          } else {
+                                                            $$i > -1 &&
+                                                              _vm.$set(
+                                                                field,
+                                                                "value",
+                                                                $$a
+                                                                  .slice(0, $$i)
+                                                                  .concat(
+                                                                    $$a.slice(
+                                                                      $$i + 1
+                                                                    )
+                                                                  )
+                                                              );
+                                                          }
+                                                        } else {
+                                                          _vm.$set(
+                                                            field,
+                                                            "value",
+                                                            $$c
+                                                          );
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "input",
+                                                  field.input_attrs,
+                                                  false
+                                                ),
+                                                field.events
+                                                  ? field.events(
+                                                      field,
+                                                      _vm.fieldsets,
+                                                      _vm.model
+                                                    )
+                                                  : {}
+                                              )
+                                            )
+                                          : field.type === "radio"
+                                          ? _c(
+                                              "input",
+                                              _vm._g(
+                                                _vm._b(
+                                                  {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value: field.value,
+                                                        expression: "field.value"
+                                                      }
+                                                    ],
+                                                    attrs: { type: "radio" },
+                                                    domProps: {
+                                                      checked: _vm._q(
+                                                        field.value,
+                                                        null
+                                                      )
+                                                    },
+                                                    on: {
+                                                      input: function($event) {
+                                                        _vm.model[field.name] =
+                                                          field.value;
+                                                      },
+                                                      change: function($event) {
+                                                        return _vm.$set(
+                                                          field,
+                                                          "value",
+                                                          null
+                                                        )
+                                                      }
+                                                    }
+                                                  },
+                                                  "input",
+                                                  field.input_attrs,
+                                                  false
+                                                ),
+                                                field.events
+                                                  ? field.events(
+                                                      field,
+                                                      _vm.fieldsets,
+                                                      _vm.model
+                                                    )
+                                                  : {}
+                                              )
+                                            )
+                                          : _c(
+                                              "input",
+                                              _vm._g(
+                                                _vm._b(
+                                                  {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value: field.value,
+                                                        expression: "field.value"
+                                                      }
+                                                    ],
+                                                    attrs: { type: field.type },
+                                                    domProps: {
+                                                      value: field.value
+                                                    },
+                                                    on: {
+                                                      input: [
+                                                        function($event) {
+                                                          if (
+                                                            $event.target.composing
+                                                          ) {
+                                                            return
+                                                          }
+                                                          _vm.$set(
+                                                            field,
+                                                            "value",
+                                                            $event.target.value
+                                                          );
+                                                        },
+                                                        function($event) {
+                                                          _vm.model[field.name] =
+                                                            field.value;
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "input",
+                                                  field.input_attrs,
+                                                  false
+                                                ),
+                                                field.events
+                                                  ? field.events(
+                                                      field,
+                                                      _vm.fieldsets,
+                                                      _vm.model
+                                                    )
+                                                  : {}
+                                              )
+                                            )
+                                      ]
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  field.type == "textarea"
+                                    ? [
+                                        _c(
+                                          "textarea",
+                                          _vm._g(
+                                            _vm._b(
+                                              {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value: field.value,
+                                                    expression: "field.value"
+                                                  }
+                                                ],
+                                                domProps: { value: field.value },
+                                                on: {
+                                                  input: [
+                                                    function($event) {
+                                                      if ($event.target.composing) {
+                                                        return
+                                                      }
+                                                      _vm.$set(
+                                                        field,
+                                                        "value",
+                                                        $event.target.value
+                                                      );
+                                                    },
+                                                    function($event) {
+                                                      _vm.model[field.name] =
+                                                        field.value;
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "textarea",
                                               field.input_attrs,
                                               false
                                             ),
@@ -388,289 +650,64 @@
                                                 )
                                               : {}
                                           )
-                                        ),
-                                        _vm._v(" "),
-                                        _c("span", [
-                                          _vm._v(_vm._s(option.label.text))
-                                        ])
+                                        )
                                       ]
-                                    )
-                                  }
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            field.type == "text" ||
-                            field.type == "password" ||
-                            field.type == "email" ||
-                            field.type == "tel" ||
-                            field.type == "number"
-                              ? [
-                                  field.type === "checkbox"
-                                    ? _c(
-                                        "input",
-                                        _vm._g(
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  field.type == "component"
+                                    ? [
+                                        _c(
+                                          field.component,
                                           _vm._b(
-                                            {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value: field.value,
-                                                  expression: "field.value"
-                                                }
-                                              ],
-                                              attrs: { type: "checkbox" },
-                                              domProps: {
-                                                checked: Array.isArray(field.value)
-                                                  ? _vm._i(field.value, null) > -1
-                                                  : field.value
-                                              },
-                                              on: {
-                                                input: function($event) {
-                                                  _vm.model[field.name] =
-                                                    field.value;
-                                                },
-                                                change: function($event) {
-                                                  var $$a = field.value,
-                                                    $$el = $event.target,
-                                                    $$c = $$el.checked
-                                                      ? true
-                                                      : false;
-                                                  if (Array.isArray($$a)) {
-                                                    var $$v = null,
-                                                      $$i = _vm._i($$a, $$v);
-                                                    if ($$el.checked) {
-                                                      $$i < 0 &&
-                                                        _vm.$set(
-                                                          field,
-                                                          "value",
-                                                          $$a.concat([$$v])
-                                                        );
-                                                    } else {
-                                                      $$i > -1 &&
-                                                        _vm.$set(
-                                                          field,
-                                                          "value",
-                                                          $$a
-                                                            .slice(0, $$i)
-                                                            .concat(
-                                                              $$a.slice($$i + 1)
-                                                            )
-                                                        );
-                                                    }
-                                                  } else {
-                                                    _vm.$set(field, "value", $$c);
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            "input",
+                                            { tag: "component" },
+                                            "component",
                                             field.input_attrs,
                                             false
-                                          ),
-                                          field.events
-                                            ? field.events(
-                                                field,
-                                                _vm.fieldsets,
-                                                _vm.model
-                                              )
-                                            : {}
+                                          )
                                         )
-                                      )
-                                    : field.type === "radio"
-                                    ? _c(
-                                        "input",
-                                        _vm._g(
-                                          _vm._b(
-                                            {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value: field.value,
-                                                  expression: "field.value"
-                                                }
-                                              ],
-                                              attrs: { type: "radio" },
-                                              domProps: {
-                                                checked: _vm._q(field.value, null)
-                                              },
-                                              on: {
-                                                input: function($event) {
-                                                  _vm.model[field.name] =
-                                                    field.value;
-                                                },
-                                                change: function($event) {
-                                                  return _vm.$set(
-                                                    field,
-                                                    "value",
-                                                    null
+                                      ]
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  field.type == "button"
+                                    ? [
+                                        _c(
+                                          "button",
+                                          _vm._g(
+                                            _vm._b(
+                                              {
+                                                domProps: {
+                                                  innerHTML: _vm._s(
+                                                    field.label.text
                                                   )
                                                 }
-                                              }
-                                            },
-                                            "input",
-                                            field.input_attrs,
-                                            false
-                                          ),
-                                          field.events
-                                            ? field.events(
-                                                field,
-                                                _vm.fieldsets,
-                                                _vm.model
-                                              )
-                                            : {}
-                                        )
-                                      )
-                                    : _c(
-                                        "input",
-                                        _vm._g(
-                                          _vm._b(
-                                            {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value: field.value,
-                                                  expression: "field.value"
-                                                }
-                                              ],
-                                              attrs: { type: field.type },
-                                              domProps: { value: field.value },
-                                              on: {
-                                                input: [
-                                                  function($event) {
-                                                    if ($event.target.composing) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      field,
-                                                      "value",
-                                                      $event.target.value
-                                                    );
-                                                  },
-                                                  function($event) {
-                                                    _vm.model[field.name] =
-                                                      field.value;
-                                                  }
-                                                ]
-                                              }
-                                            },
-                                            "input",
-                                            field.input_attrs,
-                                            false
-                                          ),
-                                          field.events
-                                            ? field.events(
-                                                field,
-                                                _vm.fieldsets,
-                                                _vm.model
-                                              )
-                                            : {}
-                                        )
-                                      )
-                                ]
-                              : _vm._e(),
-                            _vm._v(" "),
-                            field.type == "textarea"
-                              ? [
-                                  _c(
-                                    "textarea",
-                                    _vm._g(
-                                      _vm._b(
-                                        {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: field.value,
-                                              expression: "field.value"
-                                            }
-                                          ],
-                                          domProps: { value: field.value },
-                                          on: {
-                                            input: [
-                                              function($event) {
-                                                if ($event.target.composing) {
-                                                  return
-                                                }
-                                                _vm.$set(
-                                                  field,
-                                                  "value",
-                                                  $event.target.value
-                                                );
                                               },
-                                              function($event) {
-                                                _vm.model[field.name] = field.value;
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "textarea",
-                                        field.input_attrs,
-                                        false
-                                      ),
-                                      field.events
-                                        ? field.events(
-                                            field,
-                                            _vm.fieldsets,
-                                            _vm.model
+                                              "button",
+                                              field.input_attrs,
+                                              false
+                                            ),
+                                            field.events
+                                              ? field.events(
+                                                  field,
+                                                  _vm.fieldsets,
+                                                  _vm.model
+                                                )
+                                              : {}
                                           )
-                                        : {}
-                                    )
-                                  )
-                                ]
-                              : _vm._e(),
-                            _vm._v(" "),
-                            field.type == "component"
-                              ? [
-                                  _c(
-                                    field.component,
-                                    _vm._b(
-                                      { tag: "component" },
-                                      "component",
-                                      field.input_attrs,
-                                      false
-                                    )
-                                  )
-                                ]
-                              : _vm._e(),
-                            _vm._v(" "),
-                            field.type == "button"
-                              ? [
-                                  _c(
-                                    "button",
-                                    _vm._g(
-                                      _vm._b(
-                                        {
-                                          domProps: {
-                                            innerHTML: _vm._s(field.label.text)
-                                          }
-                                        },
-                                        "button",
-                                        field.input_attrs,
-                                        false
-                                      ),
-                                      field.events
-                                        ? field.events(
-                                            field,
-                                            _vm.fieldsets,
-                                            _vm.model
-                                          )
-                                        : {}
-                                    )
-                                  )
-                                ]
-                              : _vm._e()
-                          ],
-                          2
-                        )
-                      ]
-                    )
-                  }),
-                  0
-                )
-              ]
+                                        )
+                                      ]
+                                    : _vm._e()
+                                ],
+                                2
+                              )
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    ]
+                  : _vm._e()
+              ],
+              2
             )
           }),
           0
@@ -683,11 +720,11 @@
       /* style */
       var __vue_inject_styles__ = function (inject) {
         if (!inject) { return }
-        inject("data-v-fbef2852_0", { source: ".form-builder *[data-v-fbef2852] {\n  box-sizing: border-box;\n}\n.row[data-v-fbef2852] {\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n[class*=\"col-\"][data-v-fbef2852] {\n  width: 100%;\n}\n.col-1[data-v-fbef2852] {\n  max-width: 8.333333333333332%;\n  padding: 15px;\n}\n.col-2[data-v-fbef2852] {\n  max-width: 16.666666666666664%;\n  padding: 15px;\n}\n.col-3[data-v-fbef2852] {\n  max-width: 25%;\n  padding: 15px;\n}\n.col-4[data-v-fbef2852] {\n  max-width: 33.33333333333333%;\n  padding: 15px;\n}\n.col-5[data-v-fbef2852] {\n  max-width: 41.66666666666667%;\n  padding: 15px;\n}\n.col-6[data-v-fbef2852] {\n  max-width: 50%;\n  padding: 15px;\n}\n.col-7[data-v-fbef2852] {\n  max-width: 58.333333333333336%;\n  padding: 15px;\n}\n.col-8[data-v-fbef2852] {\n  max-width: 66.66666666666666%;\n  padding: 15px;\n}\n.col-9[data-v-fbef2852] {\n  max-width: 75%;\n  padding: 15px;\n}\n.col-10[data-v-fbef2852] {\n  max-width: 83.33333333333334%;\n  padding: 15px;\n}\n.col-11[data-v-fbef2852] {\n  max-width: 91.66666666666666%;\n  padding: 15px;\n}\n.col-12[data-v-fbef2852] {\n  max-width: 100%;\n  padding: 15px;\n}\nform fieldset[data-v-fbef2852] {\n  margin-bottom: 15px;\n}\nform fieldset .fields[data-v-fbef2852] {\n  width: 100%;\n  display: flex;\n  flex-wrap: wrap;\n}\nform fieldset .fields .field label[data-v-fbef2852] {\n  display: block;\n  margin-bottom: 5px;\n}\nform fieldset .fields .field[data-error] input[data-v-fbef2852],\nform fieldset .fields .field[data-error] select[data-v-fbef2852],\nform fieldset .fields .field[data-error] textarea[data-v-fbef2852] {\n  background: #faa;\n}\nform fieldset .fields .field[data-error][data-v-fbef2852]:after {\n  content: attr(data-error);\n  color: #f00;\n}\nform fieldset .fields select[data-v-fbef2852],\nform fieldset .fields [type=\"text\"][data-v-fbef2852],\nform fieldset .fields [type=\"password\"][data-v-fbef2852],\nform fieldset .fields [type=\"number\"][data-v-fbef2852],\nform fieldset .fields [type=\"email\"][data-v-fbef2852],\nform fieldset .fields [type=\"tel\"][data-v-fbef2852] {\n  height: 30px;\n  width: 100%;\n  border: 1px solid #aaa;\n}\n", map: {"version":3,"sources":["/home/everaldoreis/public_html/wordpress/vueder/src/Vueder.vue","Vueder.vue"],"names":[],"mappings":"AAsFA;EACA,sBAAA;ACrFA;ADsFA;EACA,aAAA;EACA,eAAA;EACA,WAAA;ACpFA;ADqFA;EACA,WAAA;ACnFA;ADqFA;EACA,6BAAA;EACA,aAAA;ACnFA;ADiFA;EACA,8BAAA;EACA,aAAA;AC/EA;AD6EA;EACA,cAAA;EACA,aAAA;AC3EA;ADyEA;EACA,6BAAA;EACA,aAAA;ACvEA;ADqEA;EACA,6BAAA;EACA,aAAA;ACnEA;ADiEA;EACA,cAAA;EACA,aAAA;AC/DA;AD6DA;EACA,8BAAA;EACA,aAAA;AC3DA;ADyDA;EACA,6BAAA;EACA,aAAA;ACvDA;ADqDA;EACA,cAAA;EACA,aAAA;ACnDA;ADiDA;EACA,6BAAA;EACA,aAAA;AC/CA;AD6CA;EACA,6BAAA;EACA,aAAA;AC3CA;ADyCA;EACA,eAAA;EACA,aAAA;ACvCA;ADyCA;EACA,mBAAA;ACvCA;ADwCA;EACA,WAAA;EACA,aAAA;EACA,eAAA;ACtCA;ADwCA;EACA,cAAA;EACA,kBAAA;ACtCA;ADwCA;;;EAGA,gBAAA;ACtCA;ADuCA;EACA,yBAAA;EACA,WAAA;ACrCA;ADsCA;;;;;;EAMA,YAAA;EACA,WAAA;EACA,sBAAA;ACpCA","file":"Vueder.vue","sourcesContent":["<template>\n    <div class=\"form-builder\">\n        <form :method=\"method\" :action=\"action\" :enctype=\"enctype\">\n            <fieldset v-for=\"(fieldset, key) in fieldsets\" :key=\"key\" v-bind=\"fieldset.attrs\">\n                <legend v-if=\"fieldset.legend\" v-bind=\"fieldset.legend.attrs\">{{fieldset.legend.text}}</legend>\n                <div class=\"fields\">\n                    <div class=\"field\" :data-error=\"validate(field)\" v-for=\"(field, key_field) in fieldset.fields\" :key=\"key_field\" v-bind=\"field.attrs\">\n                        <label v-bind=\"field.label.attrs\" v-if=\"field.label && field.type != 'button'\" v-html=\"field.label.text\"></label>\n                        <div v-bind=\"field.container_attrs\">\n                            <template v-if=\"field.type == 'select'\">\n                                <select v-bind=\"field.input_attrs\" v-on=\"field.events ? field.events(field, fieldsets, model) : {}\" :name=\"field.name\" v-model=\"field.value\" @change=\"model[field.name] = field.value\">\n                                    <template v-if=\"field.options\">\n                                        <option v-for=\"(option, key_option) in field.options(field, fieldsets, model)\" :key=\"key_option\" :value=\"option.value\">\n                                            {{option.label.text}}\n                                        </option>\n                                    </template>\n                                </select>\n                            </template>\n                            <template v-if=\"field.type == 'radio' && field.options\">\n                                <label v-for=\"(option, key_option) in field.options(field, fieldsets, model)\" :key=\"key_option\" :value=\"option.value\" v-bind=\"option.attrs\">\n                                    <input v-bind=\"field.input_attrs\" v-on=\"field.events ? field.events(field, fieldsets, model) : {}\" type=\"radio\" :value=\"option.value\" v-model=\"field.value\" @input=\"model[field.name] = field.value\" /> <span>{{option.label.text}}</span>\n                                </label>\n                            </template>\n                            <template v-if=\"field.type == 'text' || field.type == 'password' || field.type == 'email' || field.type == 'tel' || field.type == 'number'\">\n                                <input v-bind=\"field.input_attrs\" v-on=\"field.events ? field.events(field, fieldsets, model) : {}\"  :type=\"field.type\" v-model=\"field.value\" @input=\"model[field.name] = field.value\" />\n                            </template>\n                            <template v-if=\"field.type == 'textarea'\">\n                                <textarea v-bind=\"field.input_attrs\" v-on=\"field.events ? field.events(field, fieldsets, model) : {}\" v-model=\"field.value\" @input=\"model[field.name] = field.value\"></textarea>\n                            </template>\n                            <template v-if=\"field.type == 'component'\">\n                                <component v-bind=\"field.input_attrs\" :is=\"field.component\" />\n                            </template>\n                            <template v-if=\"field.type == 'button'\">\n                                <button v-bind=\"field.input_attrs\" v-on=\"field.events ? field.events(field, fieldsets, model) : {}\" v-html=\"field.label.text\"></button>\n                            </template>\n                        </div>\n                    </div>\n                </div>\n            </fieldset>\n        </form>\n    </div>\n</template>\n\n<script>\n/* eslint-disable */\nimport validate from 'validate.js'\nexport default {\n    props: {\n        method: 'post',\n        action: '',\n        enctype: '',\n        form: {},\n        model: {}\n    },\n    computed: {\n        fieldsets: {\n            get() {\n                return this.form\n            },\n            set(newValue) {\n            } \n        }\n    },\n    mounted() {\n        if(sessionStorage.fieldsets) {\n            this.fieldsets = JSON.parse(sessionStorage.fieldsets)\n        }\n    },\n    methods: {\n        validate(field) {\n            return validate.single(field.value, field.validations)\n        }\n    },\n    watch: {\n        fieldsets: {\n            deep: true,\n            handler() {\n                sessionStorage.fieldsets = JSON.stringify(this.fieldsets)\n            }\n        }\n    }\n}\n</script>\n\n<style lang=\"stylus\" scoped>\n.form-builder\n    *\n        box-sizing border-box\n.row\n  display flex\n  flex-wrap wrap \n  width 100%\n[class*=\"col-\"]\n  width 100%\nfor i in 1..12\n  .col-{i}\n    max-width unit(100% * (i / 12), '%')\n    padding 15px\nform\n    fieldset\n        margin-bottom 15px\n        .fields\n            width 100%\n            display flex\n            flex-wrap wrap\n            .field\n                label\n                    display block\n                    margin-bottom 5px\n                &[data-error]\n                    input\n                    select\n                    textarea\n                        background #faa\n                    &:after\n                        content attr(data-error)\n                        color red\n            select\n            [type=\"text\"]\n            [type=\"password\"]\n            [type=\"number\"]\n            [type=\"email\"]\n            [type=\"tel\"]\n                height 30px\n                width 100%\n                border 1px solid #aaa\n</style>",".form-builder * {\n  box-sizing: border-box;\n}\n.row {\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n[class*=\"col-\"] {\n  width: 100%;\n}\n.col-1 {\n  max-width: 8.333333333333332%;\n  padding: 15px;\n}\n.col-2 {\n  max-width: 16.666666666666664%;\n  padding: 15px;\n}\n.col-3 {\n  max-width: 25%;\n  padding: 15px;\n}\n.col-4 {\n  max-width: 33.33333333333333%;\n  padding: 15px;\n}\n.col-5 {\n  max-width: 41.66666666666667%;\n  padding: 15px;\n}\n.col-6 {\n  max-width: 50%;\n  padding: 15px;\n}\n.col-7 {\n  max-width: 58.333333333333336%;\n  padding: 15px;\n}\n.col-8 {\n  max-width: 66.66666666666666%;\n  padding: 15px;\n}\n.col-9 {\n  max-width: 75%;\n  padding: 15px;\n}\n.col-10 {\n  max-width: 83.33333333333334%;\n  padding: 15px;\n}\n.col-11 {\n  max-width: 91.66666666666666%;\n  padding: 15px;\n}\n.col-12 {\n  max-width: 100%;\n  padding: 15px;\n}\nform fieldset {\n  margin-bottom: 15px;\n}\nform fieldset .fields {\n  width: 100%;\n  display: flex;\n  flex-wrap: wrap;\n}\nform fieldset .fields .field label {\n  display: block;\n  margin-bottom: 5px;\n}\nform fieldset .fields .field[data-error] input,\nform fieldset .fields .field[data-error] select,\nform fieldset .fields .field[data-error] textarea {\n  background: #faa;\n}\nform fieldset .fields .field[data-error]:after {\n  content: attr(data-error);\n  color: #f00;\n}\nform fieldset .fields select,\nform fieldset .fields [type=\"text\"],\nform fieldset .fields [type=\"password\"],\nform fieldset .fields [type=\"number\"],\nform fieldset .fields [type=\"email\"],\nform fieldset .fields [type=\"tel\"] {\n  height: 30px;\n  width: 100%;\n  border: 1px solid #aaa;\n}\n"]}, media: undefined });
+        inject("data-v-85e43278_0", { source: ".form-builder *[data-v-85e43278] {\n  box-sizing: border-box;\n}\n.row[data-v-85e43278] {\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n[class*=\"col-\"][data-v-85e43278] {\n  width: 100%;\n}\n.col-1[data-v-85e43278] {\n  max-width: 8.333333333333332%;\n  padding: 15px;\n}\n.col-2[data-v-85e43278] {\n  max-width: 16.666666666666664%;\n  padding: 15px;\n}\n.col-3[data-v-85e43278] {\n  max-width: 25%;\n  padding: 15px;\n}\n.col-4[data-v-85e43278] {\n  max-width: 33.33333333333333%;\n  padding: 15px;\n}\n.col-5[data-v-85e43278] {\n  max-width: 41.66666666666667%;\n  padding: 15px;\n}\n.col-6[data-v-85e43278] {\n  max-width: 50%;\n  padding: 15px;\n}\n.col-7[data-v-85e43278] {\n  max-width: 58.333333333333336%;\n  padding: 15px;\n}\n.col-8[data-v-85e43278] {\n  max-width: 66.66666666666666%;\n  padding: 15px;\n}\n.col-9[data-v-85e43278] {\n  max-width: 75%;\n  padding: 15px;\n}\n.col-10[data-v-85e43278] {\n  max-width: 83.33333333333334%;\n  padding: 15px;\n}\n.col-11[data-v-85e43278] {\n  max-width: 91.66666666666666%;\n  padding: 15px;\n}\n.col-12[data-v-85e43278] {\n  max-width: 100%;\n  padding: 15px;\n}\nform fieldset[data-v-85e43278] {\n  margin-bottom: 15px;\n}\nform fieldset .fields[data-v-85e43278] {\n  width: 100%;\n  display: flex;\n  flex-wrap: wrap;\n}\nform fieldset .fields .field label[data-v-85e43278] {\n  display: block;\n  margin-bottom: 5px;\n}\nform fieldset .fields .field[data-error] input[data-v-85e43278],\nform fieldset .fields .field[data-error] select[data-v-85e43278],\nform fieldset .fields .field[data-error] textarea[data-v-85e43278] {\n  background: #faa;\n}\nform fieldset .fields .field[data-error][data-v-85e43278]:after {\n  content: attr(data-error);\n  color: #f00;\n}\nform fieldset .fields select[data-v-85e43278],\nform fieldset .fields [type=\"text\"][data-v-85e43278],\nform fieldset .fields [type=\"password\"][data-v-85e43278],\nform fieldset .fields [type=\"number\"][data-v-85e43278],\nform fieldset .fields [type=\"email\"][data-v-85e43278],\nform fieldset .fields [type=\"tel\"][data-v-85e43278] {\n  height: 30px;\n  width: 100%;\n  border: 1px solid #aaa;\n}\n", map: {"version":3,"sources":["/home/everaldoreis/public_html/wordpress/vueder/src/Vueder.vue","Vueder.vue"],"names":[],"mappings":"AAwFA;EACA,sBAAA;ACvFA;ADwFA;EACA,aAAA;EACA,eAAA;EACA,WAAA;ACtFA;ADuFA;EACA,WAAA;ACrFA;ADuFA;EACA,6BAAA;EACA,aAAA;ACrFA;ADmFA;EACA,8BAAA;EACA,aAAA;ACjFA;AD+EA;EACA,cAAA;EACA,aAAA;AC7EA;AD2EA;EACA,6BAAA;EACA,aAAA;ACzEA;ADuEA;EACA,6BAAA;EACA,aAAA;ACrEA;ADmEA;EACA,cAAA;EACA,aAAA;ACjEA;AD+DA;EACA,8BAAA;EACA,aAAA;AC7DA;AD2DA;EACA,6BAAA;EACA,aAAA;ACzDA;ADuDA;EACA,cAAA;EACA,aAAA;ACrDA;ADmDA;EACA,6BAAA;EACA,aAAA;ACjDA;AD+CA;EACA,6BAAA;EACA,aAAA;AC7CA;AD2CA;EACA,eAAA;EACA,aAAA;ACzCA;AD2CA;EACA,mBAAA;ACzCA;AD0CA;EACA,WAAA;EACA,aAAA;EACA,eAAA;ACxCA;AD0CA;EACA,cAAA;EACA,kBAAA;ACxCA;AD0CA;;;EAGA,gBAAA;ACxCA;ADyCA;EACA,yBAAA;EACA,WAAA;ACvCA;ADwCA;;;;;;EAMA,YAAA;EACA,WAAA;EACA,sBAAA;ACtCA","file":"Vueder.vue","sourcesContent":["<template>\n    <div class=\"form-builder\">\n        <form :method=\"method\" :action=\"action\" :enctype=\"enctype\">\n            <fieldset v-for=\"(fieldset, key) in fieldsets\" :key=\"key\" v-bind=\"fieldset.attrs\">\n                <legend v-if=\"fieldset.legend\" v-bind=\"fieldset.legend.attrs\">{{fieldset.legend.text}}</legend>\n                <template v-if=\"fieldset && fieldset.fields\">\n                    <div class=\"fields\">\n                        <div class=\"field\" :data-error=\"validate(field)\" v-for=\"(field, key_field) in fieldset.fields\" :key=\"key_field\" v-bind=\"field.attrs\">\n                            <label v-bind=\"field.label.attrs\" v-if=\"field.label && field.type != 'button'\" v-html=\"field.label.text\"></label>\n                            <div v-bind=\"field.container_attrs\">\n                                <template v-if=\"field.type == 'select'\">\n                                    <select v-bind=\"field.input_attrs\" v-on=\"field.events ? field.events(field, fieldsets, model) : {}\" :name=\"field.name\" v-model=\"field.value\" @change=\"model[field.name] = field.value\">\n                                        <template v-if=\"field.options\">\n                                            <option v-for=\"(option, key_option) in field.options(field, fieldsets, model)\" :key=\"key_option\" :value=\"option.value\">\n                                                {{option.label.text}}\n                                            </option>\n                                        </template>\n                                    </select>\n                                </template>\n                                <template v-if=\"field.type == 'radio' && field.options\">\n                                    <label v-for=\"(option, key_option) in field.options(field, fieldsets, model)\" :key=\"key_option\" :value=\"option.value\" v-bind=\"option.attrs\">\n                                        <input v-bind=\"field.input_attrs\" v-on=\"field.events ? field.events(field, fieldsets, model) : {}\" type=\"radio\" :value=\"option.value\" v-model=\"field.value\" @input=\"model[field.name] = field.value\" /> <span>{{option.label.text}}</span>\n                                    </label>\n                                </template>\n                                <template v-if=\"field.type == 'text' || field.type == 'password' || field.type == 'email' || field.type == 'tel' || field.type == 'number'\">\n                                    <input v-bind=\"field.input_attrs\" v-on=\"field.events ? field.events(field, fieldsets, model) : {}\"  :type=\"field.type\" v-model=\"field.value\" @input=\"model[field.name] = field.value\" />\n                                </template>\n                                <template v-if=\"field.type == 'textarea'\">\n                                    <textarea v-bind=\"field.input_attrs\" v-on=\"field.events ? field.events(field, fieldsets, model) : {}\" v-model=\"field.value\" @input=\"model[field.name] = field.value\"></textarea>\n                                </template>\n                                <template v-if=\"field.type == 'component'\">\n                                    <component v-bind=\"field.input_attrs\" :is=\"field.component\" />\n                                </template>\n                                <template v-if=\"field.type == 'button'\">\n                                    <button v-bind=\"field.input_attrs\" v-on=\"field.events ? field.events(field, fieldsets, model) : {}\" v-html=\"field.label.text\"></button>\n                                </template>\n                            </div>\n                        </div>\n                    </div>\n                </template>\n            </fieldset>\n        </form>\n    </div>\n</template>\n\n<script>\n/* eslint-disable */\nimport validate from 'validate.js'\nexport default {\n    props: {\n        method: 'post',\n        action: '',\n        enctype: '',\n        form: {},\n        model: {}\n    },\n    computed: {\n        fieldsets: {\n            get() {\n                return this.form\n            },\n            set(newValue) {\n            } \n        }\n    },\n    mounted() {\n        if(sessionStorage.fieldsets) {\n            this.fieldsets = JSON.parse(sessionStorage.fieldsets)\n        }\n    },\n    methods: {\n        validate(field) {\n            return validate.single(field.value, field.validations)\n        }\n    },\n    watch: {\n        fieldsets: {\n            deep: true,\n            handler() {\n                sessionStorage.fieldsets = JSON.stringify(this.fieldsets)\n            }\n        }\n    }\n}\n</script>\n\n<style lang=\"stylus\" scoped>\n.form-builder\n    *\n        box-sizing border-box\n.row\n  display flex\n  flex-wrap wrap \n  width 100%\n[class*=\"col-\"]\n  width 100%\nfor i in 1..12\n  .col-{i}\n    max-width unit(100% * (i / 12), '%')\n    padding 15px\nform\n    fieldset\n        margin-bottom 15px\n        .fields\n            width 100%\n            display flex\n            flex-wrap wrap\n            .field\n                label\n                    display block\n                    margin-bottom 5px\n                &[data-error]\n                    input\n                    select\n                    textarea\n                        background #faa\n                    &:after\n                        content attr(data-error)\n                        color red\n            select\n            [type=\"text\"]\n            [type=\"password\"]\n            [type=\"number\"]\n            [type=\"email\"]\n            [type=\"tel\"]\n                height 30px\n                width 100%\n                border 1px solid #aaa\n</style>",".form-builder * {\n  box-sizing: border-box;\n}\n.row {\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n[class*=\"col-\"] {\n  width: 100%;\n}\n.col-1 {\n  max-width: 8.333333333333332%;\n  padding: 15px;\n}\n.col-2 {\n  max-width: 16.666666666666664%;\n  padding: 15px;\n}\n.col-3 {\n  max-width: 25%;\n  padding: 15px;\n}\n.col-4 {\n  max-width: 33.33333333333333%;\n  padding: 15px;\n}\n.col-5 {\n  max-width: 41.66666666666667%;\n  padding: 15px;\n}\n.col-6 {\n  max-width: 50%;\n  padding: 15px;\n}\n.col-7 {\n  max-width: 58.333333333333336%;\n  padding: 15px;\n}\n.col-8 {\n  max-width: 66.66666666666666%;\n  padding: 15px;\n}\n.col-9 {\n  max-width: 75%;\n  padding: 15px;\n}\n.col-10 {\n  max-width: 83.33333333333334%;\n  padding: 15px;\n}\n.col-11 {\n  max-width: 91.66666666666666%;\n  padding: 15px;\n}\n.col-12 {\n  max-width: 100%;\n  padding: 15px;\n}\nform fieldset {\n  margin-bottom: 15px;\n}\nform fieldset .fields {\n  width: 100%;\n  display: flex;\n  flex-wrap: wrap;\n}\nform fieldset .fields .field label {\n  display: block;\n  margin-bottom: 5px;\n}\nform fieldset .fields .field[data-error] input,\nform fieldset .fields .field[data-error] select,\nform fieldset .fields .field[data-error] textarea {\n  background: #faa;\n}\nform fieldset .fields .field[data-error]:after {\n  content: attr(data-error);\n  color: #f00;\n}\nform fieldset .fields select,\nform fieldset .fields [type=\"text\"],\nform fieldset .fields [type=\"password\"],\nform fieldset .fields [type=\"number\"],\nform fieldset .fields [type=\"email\"],\nform fieldset .fields [type=\"tel\"] {\n  height: 30px;\n  width: 100%;\n  border: 1px solid #aaa;\n}\n"]}, media: undefined });
 
       };
       /* scoped */
-      var __vue_scope_id__ = "data-v-fbef2852";
+      var __vue_scope_id__ = "data-v-85e43278";
       /* module identifier */
       var __vue_module_identifier__ = undefined;
       /* functional template */
