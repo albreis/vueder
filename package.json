@@ -1,6 +1,6 @@
 {
   "name": "vueder",
-  "version": "1.20.0",
+  "version": "1.21.1",
   "description": "Criador de formulário baseado em objetos para VueJS",
   "main": "index.js",
   "module": "dist/vueder.esm.js",
@@ -21,8 +21,8 @@
     "commit:minor": "npm version minor --no-git-tag-version --force",
     "commit:major": "npm version major --no-git-tag-version --force",
     "precommit": "npm run build && git add .",
-    "postcommit": "git push origin master && git status && npm run commit:minor && npm publish",
-    "commit": "git commit -m "
+    "postcommit": "git push origin master && git status && npm publish",
+    "commit": "git commit -m $(npm version patch --no-git-tag-version)"
   },
   "repository": {
     "type": "git",
