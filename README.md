@@ -45,6 +45,10 @@ let Form = {
                     class: '',
                     title: ''
                 },
+                // Validações do campo usando a lib: validate.js https://validatejs.org/
+                validations: {
+                    email: true
+                },
                 // Caso seja um select, checkbox ou radio
                 // É necessario usar uma função e retornar um objeto ou array de objetos no formato: [{label: {}, value: ''}]
                 options: function(field, form, model)  {
@@ -151,3 +155,5 @@ let Form = {
     }
 }
 ```
+
+Para endetender como as validações funcionam veja: https://validatejs.org/
