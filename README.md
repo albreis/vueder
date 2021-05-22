@@ -9,8 +9,7 @@ let Form = {
     dados: {
         // Legenda do fieldset
         legend: {
-            // Texto do fieldset
-            text: 'Fieldset A'
+            text: 'Dados pessoais',
             // Atributos da tag fieldset
             attrs: {
                 class: 'classe-a',
@@ -23,64 +22,58 @@ let Form = {
         // Campos do fieldset
         fields: {
             // Campo
-            tipo: {
-                // Label do campo
+            nome: {
                 label: {
-                    // Texto da label
-                    text: 'Tipo',
+                    // Label do campo
+                    text: 'Nome',
                     // Atributos da tag label
                     attrs: {
+                        style: {
+                            fontSize: '30px'
+                        },
                     }
                 },
-                // Tipo do input
-                type: 'select',
-                // Nome do input
-                name: 'tipo',
-                // Atributos da tag DIV que engloba a label e o input
+                container_attrs: {
+                    class: 'row'
+                },
+                // Atributos da tag fieldset
                 attrs: {
                     class: 'col-6'
                 },
-                // Atributos do container que engloba o input
-                container_attrs: {
-                    class: '',
-                    title: ''
+                // Atributos do input
+                input_attrs: {
+                    style: {
+                        padding: '5px 15px'
+                    },
+                    placeholder: 'Digite seu nome aqui...'
                 },
-                // Validações do campo usando a lib: validate.js https://validatejs.org/
-                validations: {
-                    email: true
-                },
-                // Caso seja um select, checkbox ou radio
-                // É necessario usar uma função e retornar um objeto ou array de objetos no formato: [{label: {}, value: ''}]
-                options: function(field, form, model)  {
-                    return {
-                        casa: {
-                            label: {
-                                text: 'Casa',
-                                attrs: {
-                                    class: 'col-12'
-                                }
-                            },
-                            value: 'casa'
+                // Tipo do input
+                type: 'text',
+                // Nome no input
+                name: 'nome'
+            },
+            sobrenome: {
+                label: {
+                    text: 'Sobrenome',
+                    attrs: {
+                        style: {
+                            fontSize: '30px'
                         },
-                        apartamento: {
-                            label: {
-                                text: 'Apartamento',
-                                attrs: {
-                                    class: 'col-12'
-                                }
-                            },
-                            value: 'apartamento'
-                        }
                     }
                 },
-                // Eventos para serem adicionados ao input
-                events(field, form, model) {
-                    return {
-                        change() {
-                            alert('hello world!')
-                        }
-                    }
-                }
+                container_attrs: {
+                    class: 'row'
+                },
+                attrs: {
+                    class: 'col-6'
+                },
+                input_attrs: {
+                    style: {
+                        padding: '5px 15px'
+                    },
+                    placeholder: 'Digite seu nome aqui...'
+                },
+                type: 'text'
             },
             estado: {
                 type: 'select',
@@ -117,7 +110,8 @@ let Form = {
                                     cidades[i] = {label: {text: res.data[i].nome}, value: res.data[i].nome}
                                 }
                             }
-                            form.dados.fields.cidade.options = () => cidades
+                            console.log(form)
+                            form.dados.fields.cidade.options = (field, form, model) => cidades;
                         }
                     }
                 }
