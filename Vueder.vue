@@ -6,7 +6,7 @@
                 <div class="fields">
                     <div class="field" :data-error="validate(field)" v-for="(field, key_field) in fieldset.fields" :key="key_field" v-bind="field.attrs">
                         <label v-bind="field.label.attrs" v-if="field.label.text" v-html="field.label.text"></label>
-                        <div v-bind="field.container">
+                        <div v-bind="field.container_attrs">
                             <template v-if="field.type == 'select'">
                                 <select v-bind="field.input_attrs" v-on="field.events ? field.events(field, fieldsets, model) : {}" :name="field.name" v-model="field.value" @input="model[field.name] = field.value">
                                     <template v-if="field.options">
