@@ -15,7 +15,7 @@
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vueder.umd.js",
     "build:es": "rollup --config build/rollup.config.js --format es --file dist/vueder.esm.js",
     "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vueder.min.js",
-    "build:doc": "vue build --dest documentation src/Documentation.vue",
+    "build:doc": "vue build --dest docs src/Documentation.vue",
     "lint": "vue-cli-service lint",
     "commit:patch": "npm version patch --no-git-tag-version --force",
     "commit:minor": "npm version minor --no-git-tag-version --force",
