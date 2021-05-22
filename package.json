@@ -20,9 +20,9 @@
     "precommit": "git add .",
     "commit": "git commit -m",
     "postcommit": "git push",
-    "commit:patch": "npm run build && git add . && git commit -m $(npm version patch --no-git-tag-version --force) && git push -u origin master && npm publish",
-    "commit:minor": "npm run build && git add . && git commit -m $(npm version minor --no-git-tag-version --force) && git push -u origin master && npm publish",
-    "commit:major": "npm run build && git add . && git commit -m $(npm version major --no-git-tag-version --force) && git push -u origin master && npm publish"
+    "publish:patch": "npm run build && git add . && git commit -m $(npm version patch --no-git-tag-version --force) && git push -u origin master && npm publish",
+    "publish:minor": "npm run build && git add . && git commit -m $(npm version minor --no-git-tag-version --force) && git push -u origin master && npm publish",
+    "publish:major": "npm run build && git add . && git commit -m $(npm version major --no-git-tag-version --force) && git push -u origin master && npm publish"
   },
   "repository": {
     "type": "git",
