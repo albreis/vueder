@@ -21,7 +21,7 @@
     "commit:minor": "npm version minor --no-git-tag-version --force",
     "commit:major": "npm version major --no-git-tag-version --force",
     "precommit": "npm run build & git add .",
-    "postcommit": "git push origin master && git status && npm publish",
+    "postcommit": "git push origin master & git status & npm publish",
     "commit": "git commit -m "
   },
   "repository": {
