@@ -1,5 +1,5 @@
 <template>
-    <div id="form-builder">
+    <div class="form-builder">
         <form :method="method" :action="action" :enctype="enctype">
             <fieldset v-for="(fieldset, key) in fieldsets" :key="key" v-bind="fieldset.attrs">
                 <legend v-if="fieldset.legend" v-bind="fieldset.legend.attrs">{{fieldset.legend.text}}</legend>
