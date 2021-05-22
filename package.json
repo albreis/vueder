@@ -2,11 +2,11 @@
   "name": "vueder",
   "version": "1.10.0",
   "description": "Criador de formulário baseado em objetos para VueJS",
-  "main": "dist/vueder.umd.js",
+  "main": "index.js",
   "module": "dist/vueder.esm.js",
   "unpkg": "dist/vueder.min.js",
   "browser": {
-    "./sfc": "src/ueder.vue"
+    "./sfc": "src/vueder.vue"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
