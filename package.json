@@ -2,9 +2,20 @@
   "name": "vueder",
   "version": "1.8.0",
   "description": "Criador de formulário baseado em objetos para VueJS",
-  "main": "index.js",
+  "main": "dist/vueder.umd.js",
+  "module": "dist/vueder.esm.js",
+  "unpkg": "dist/vueder.min.js",
+  "browser": {
+    "./sfc": "src/ueder.vue"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "vue-cli-service serve",
+    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vueder.umd.js",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/vueder.esm.js",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vueder.min.js",
+    "lint": "vue-cli-service lint"
   },
   "repository": {
     "type": "git",
@@ -20,5 +31,23 @@
   "bugs": {
     "url": "https://github.com/albreis/vueder/issues"
   },
-  "homepage": "https://github.com/albreis/vueder#readme"
+  "homepage": "https://github.com/albreis/vueder#readme",
+  "devDependencies": {
+    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "postcss": "^8.2.15",
+    "rollup": "^1.17.0",
+    "rollup-plugin-vue": "^5.0.1",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "validate.js": "^0.13.1",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "dependencies": {
+    "webpack": "^5.37.1"
+  }
 }
