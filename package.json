@@ -22,7 +22,7 @@
     "commit": "git commit -m",
     "postcommit": "git push",
     "precommit:doc": "npm run build:doc && git add .",
-    "commit:doc": "git commit -m 'Documentation update'",
+    "commit:doc": "git commit -m ",
     "postcommit:doc": "git push",
     "publish:patch": "npm run build && git add . && git commit -m $(npm version patch --no-git-tag-version --force) && git push -u origin master && npm login && npm publish --access=public",
     "publish:minor": "npm run build && git add . && git commit -m $(npm version minor --no-git-tag-version --force) && git push -u origin master && npm login && npm publish --access=public",
