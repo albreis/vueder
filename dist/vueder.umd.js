@@ -9,18 +9,7 @@
     //
     var script = {
         props: {
-            attrs: {},
             form: {}
-        },
-        computed: {
-            fieldsets: {
-                get: function get() {
-                    return this.form
-                },
-                set: function set(newValue) {
-
-                }
-            }
         },
         data: function data() {
             return {
@@ -28,8 +17,8 @@
             }
         },
         mounted: function mounted() {
-            if(sessionStorage.fieldsets) {
-                this.fieldsets = JSON.parse(sessionStorage.fieldsets);
+            if(sessionStorage.form) {
+                this.form = JSON.parse(sessionStorage.form);
             }
         },
         methods: {
@@ -44,10 +33,10 @@
             }
         },
         watch: {
-            fieldsets: {
+            form: {
                 deep: true,
                 handler: function handler() {
-                    sessionStorage.fieldsets = JSON.stringify(this.fieldsets);
+                    sessionStorage.form = JSON.stringify(this.form);
                     this.$emit('modified', this.model);
                 }
             }
@@ -193,12 +182,17 @@
       return _c("div", { staticClass: "form-builder" }, [
         _c(
           "form",
-          _vm._b({}, "form", _vm.attrs, false),
+          _vm._g(
+            _vm._b(
+              {},
+              "form",
+              _vm.parse(_vm.form.attrs, { model: _vm.model }),
+              false
+            ),
+            _vm.parse(_vm.form.events, { form: _vm.form, model: _vm.model })
+          ),
           _vm._l(
-            _vm.parse(_vm.fieldsets, {
-              fieldsets: _vm.fieldsets,
-              model: _vm.model
-            }),
+            _vm.parse(_vm.form.fieldsets, { form: _vm.form, model: _vm.model }),
             function(fieldset, key) {
               return _c(
                 "fieldset",
@@ -207,14 +201,14 @@
                     { key: key },
                     "fieldset",
                     _vm.parse(fieldset.attrs, {
-                      fieldsets: _vm.fieldsets,
+                      form: _vm.form,
                       fieldset: fieldset,
                       model: _vm.model
                     }),
                     false
                   ),
                   _vm.parse(fieldset.events, {
-                    fieldsets: _vm.fieldsets,
+                    form: _vm.form,
                     fieldset: fieldset,
                     model: _vm.model
                   })
@@ -228,14 +222,14 @@
                             {},
                             "legend",
                             _vm.parse(fieldset.legend.attrs, {
-                              fieldsets: _vm.fieldsets,
+                              form: _vm.form,
                               fieldset: fieldset,
                               model: _vm.model
                             }),
                             false
                           ),
                           _vm.parse(fieldset.events, {
-                            fieldsets: _vm.fieldsets,
+                            form: _vm.form,
                             fieldset: fieldset,
                             model: _vm.model
                           })
@@ -251,7 +245,7 @@
                           { staticClass: "fields" },
                           _vm._l(
                             _vm.parse(fieldset.fields, {
-                              fieldsets: _vm.fieldsets,
+                              form: _vm.form,
                               fieldset: fieldset,
                               model: _vm.model
                             }),
@@ -267,7 +261,7 @@
                                     },
                                     "div",
                                     _vm.parse(field.attrs, {
-                                      fieldsets: _vm.fieldsets,
+                                      form: _vm.form,
                                       fieldset: fieldset,
                                       field: field,
                                       model: _vm.model
@@ -275,7 +269,7 @@
                                     false
                                   ),
                                   _vm.parse(field.events, {
-                                    fieldsets: _vm.fieldsets,
+                                    form: _vm.form,
                                     fieldset: fieldset,
                                     field: field,
                                     model: _vm.model
@@ -294,7 +288,7 @@
                                             },
                                             "label",
                                             _vm.parse(field.attrs, {
-                                              fieldsets: _vm.fieldsets,
+                                              form: _vm.form,
                                               fieldset: fieldset,
                                               field: field,
                                               model: _vm.model
@@ -302,7 +296,7 @@
                                             false
                                           ),
                                           _vm.parse(field.label.events, {
-                                            fieldsets: _vm.fieldsets,
+                                            form: _vm.form,
                                             fieldset: fieldset,
                                             field: field,
                                             model: _vm.model
@@ -318,7 +312,7 @@
                                         {},
                                         "div",
                                         _vm.parse(field.container_attrs, {
-                                          fieldsets: _vm.fieldsets,
+                                          form: _vm.form,
                                           fieldset: fieldset,
                                           field: field,
                                           model: _vm.model
@@ -326,7 +320,7 @@
                                         false
                                       ),
                                       _vm.parse(field.container_attrs, {
-                                        fieldsets: _vm.fieldsets,
+                                        form: _vm.form,
                                         fieldset: fieldset,
                                         field: field,
                                         model: _vm.model
@@ -388,7 +382,7 @@
                                                   false
                                                 ),
                                                 _vm.parse(field.events, {
-                                                  fieldsets: _vm.fieldsets,
+                                                  form: _vm.form,
                                                   fieldset: fieldset,
                                                   field: field,
                                                   model: _vm.model
@@ -398,7 +392,7 @@
                                                 field.options
                                                   ? _vm._l(
                                                       _vm.parse(field.options, {
-                                                        fieldsets: _vm.fieldsets,
+                                                        form: _vm.form,
                                                         fieldset: fieldset,
                                                         field: field,
                                                         model: _vm.model
@@ -434,7 +428,7 @@
                                       field.type == "radio" && field.options
                                         ? _vm._l(
                                             _vm.parse(field.options, {
-                                              fieldsets: _vm.fieldsets,
+                                              form: _vm.form,
                                               fieldset: fieldset,
                                               field: field,
                                               model: _vm.model
@@ -450,7 +444,7 @@
                                                     },
                                                     "label",
                                                     _vm.parse(option.attrs, {
-                                                      fieldsets: _vm.fieldsets,
+                                                      form: _vm.form,
                                                       fieldset: fieldset,
                                                       field: field,
                                                       model: _vm.model,
@@ -459,7 +453,7 @@
                                                     false
                                                   ),
                                                   _vm.parse(option.events, {
-                                                    fieldsets: _vm.fieldsets,
+                                                    form: _vm.form,
                                                     fieldset: fieldset,
                                                     field: field,
                                                     model: _vm.model,
@@ -512,8 +506,7 @@
                                                         _vm.parse(
                                                           field.input_attrs,
                                                           {
-                                                            fieldsets:
-                                                              _vm.fieldsets,
+                                                            form: _vm.form,
                                                             fieldset: fieldset,
                                                             field: field,
                                                             model: _vm.model
@@ -522,7 +515,7 @@
                                                         false
                                                       ),
                                                       _vm.parse(field.events, {
-                                                        fieldsets: _vm.fieldsets,
+                                                        form: _vm.form,
                                                         fieldset: fieldset,
                                                         field: field,
                                                         model: _vm.model
@@ -627,7 +620,7 @@
                                                       },
                                                       "input",
                                                       _vm.parse(field.input_attrs, {
-                                                        fieldsets: _vm.fieldsets,
+                                                        form: _vm.form,
                                                         fieldset: fieldset,
                                                         field: field,
                                                         model: _vm.model
@@ -635,7 +628,7 @@
                                                       false
                                                     ),
                                                     _vm.parse(field.events, {
-                                                      fieldsets: _vm.fieldsets,
+                                                      form: _vm.form,
                                                       fieldset: fieldset,
                                                       field: field,
                                                       model: _vm.model
@@ -680,7 +673,7 @@
                                                       },
                                                       "input",
                                                       _vm.parse(field.input_attrs, {
-                                                        fieldsets: _vm.fieldsets,
+                                                        form: _vm.form,
                                                         fieldset: fieldset,
                                                         field: field,
                                                         model: _vm.model
@@ -688,7 +681,7 @@
                                                       false
                                                     ),
                                                     _vm.parse(field.events, {
-                                                      fieldsets: _vm.fieldsets,
+                                                      form: _vm.form,
                                                       fieldset: fieldset,
                                                       field: field,
                                                       model: _vm.model
@@ -738,7 +731,7 @@
                                                       },
                                                       "input",
                                                       _vm.parse(field.input_attrs, {
-                                                        fieldsets: _vm.fieldsets,
+                                                        form: _vm.form,
                                                         fieldset: fieldset,
                                                         field: field,
                                                         model: _vm.model
@@ -746,7 +739,7 @@
                                                       false
                                                     ),
                                                     _vm.parse(field.events, {
-                                                      fieldsets: _vm.fieldsets,
+                                                      form: _vm.form,
                                                       fieldset: fieldset,
                                                       field: field,
                                                       model: _vm.model
@@ -797,7 +790,7 @@
                                                   },
                                                   "textarea",
                                                   _vm.parse(field.input_attrs, {
-                                                    fieldsets: _vm.fieldsets,
+                                                    form: _vm.form,
                                                     fieldset: fieldset,
                                                     field: field,
                                                     model: _vm.model
@@ -805,7 +798,7 @@
                                                   false
                                                 ),
                                                 _vm.parse(field.events, {
-                                                  fieldsets: _vm.fieldsets,
+                                                  form: _vm.form,
                                                   fieldset: fieldset,
                                                   field: field,
                                                   model: _vm.model
@@ -824,7 +817,7 @@
                                                   { tag: "component" },
                                                   "component",
                                                   _vm.parse(field.input_attrs, {
-                                                    fieldsets: _vm.fieldsets,
+                                                    form: _vm.form,
                                                     fieldset: fieldset,
                                                     field: field,
                                                     model: _vm.model
@@ -832,7 +825,7 @@
                                                   false
                                                 ),
                                                 _vm.parse(field.events, {
-                                                  fieldsets: _vm.fieldsets,
+                                                  form: _vm.form,
                                                   fieldset: fieldset,
                                                   field: field,
                                                   model: _vm.model
@@ -857,7 +850,7 @@
                                                   },
                                                   "button",
                                                   _vm.parse(field.input_attrs, {
-                                                    fieldsets: _vm.fieldsets,
+                                                    form: _vm.form,
                                                     fieldset: fieldset,
                                                     field: field,
                                                     model: _vm.model
@@ -865,7 +858,7 @@
                                                   false
                                                 ),
                                                 _vm.parse(field.events, {
-                                                  fieldsets: _vm.fieldsets,
+                                                  form: _vm.form,
                                                   fieldset: fieldset,
                                                   field: field,
                                                   model: _vm.model
@@ -900,11 +893,11 @@
       /* style */
       var __vue_inject_styles__ = function (inject) {
         if (!inject) { return }
-        inject("data-v-988713d6_0", { source: ".form-builder *[data-v-988713d6] {\n  box-sizing: border-box;\n}\n.row[data-v-988713d6] {\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n[class*=\"col-\"][data-v-988713d6] {\n  width: 100%;\n}\n.col-1[data-v-988713d6] {\n  max-width: 8.333333333333332%;\n  padding: 15px;\n}\n.col-2[data-v-988713d6] {\n  max-width: 16.666666666666664%;\n  padding: 15px;\n}\n.col-3[data-v-988713d6] {\n  max-width: 25%;\n  padding: 15px;\n}\n.col-4[data-v-988713d6] {\n  max-width: 33.33333333333333%;\n  padding: 15px;\n}\n.col-5[data-v-988713d6] {\n  max-width: 41.66666666666667%;\n  padding: 15px;\n}\n.col-6[data-v-988713d6] {\n  max-width: 50%;\n  padding: 15px;\n}\n.col-7[data-v-988713d6] {\n  max-width: 58.333333333333336%;\n  padding: 15px;\n}\n.col-8[data-v-988713d6] {\n  max-width: 66.66666666666666%;\n  padding: 15px;\n}\n.col-9[data-v-988713d6] {\n  max-width: 75%;\n  padding: 15px;\n}\n.col-10[data-v-988713d6] {\n  max-width: 83.33333333333334%;\n  padding: 15px;\n}\n.col-11[data-v-988713d6] {\n  max-width: 91.66666666666666%;\n  padding: 15px;\n}\n.col-12[data-v-988713d6] {\n  max-width: 100%;\n  padding: 15px;\n}\nform fieldset[data-v-988713d6] {\n  margin-bottom: 15px;\n}\nform fieldset .fields[data-v-988713d6] {\n  width: 100%;\n  display: flex;\n  flex-wrap: wrap;\n}\nform fieldset .fields .field label[data-v-988713d6] {\n  display: block;\n  margin-bottom: 5px;\n}\nform fieldset .fields .field[data-error] input[data-v-988713d6],\nform fieldset .fields .field[data-error] select[data-v-988713d6],\nform fieldset .fields .field[data-error] textarea[data-v-988713d6] {\n  background: #faa;\n}\nform fieldset .fields .field[data-error][data-v-988713d6]:after {\n  content: attr(data-error);\n  color: #f00;\n}\nform fieldset .fields select[data-v-988713d6],\nform fieldset .fields [type=\"text\"][data-v-988713d6],\nform fieldset .fields [type=\"password\"][data-v-988713d6],\nform fieldset .fields [type=\"number\"][data-v-988713d6],\nform fieldset .fields [type=\"email\"][data-v-988713d6],\nform fieldset .fields [type=\"tel\"][data-v-988713d6] {\n  height: 30px;\n  width: 100%;\n  border: 1px solid #aaa;\n}\n", map: {"version":3,"sources":["/home/everaldoreis/public_html/wordpress/vueder/src/Vueder.vue","Vueder.vue"],"names":[],"mappings":"AAkGA;EACA,sBAAA;ACjGA;ADkGA;EACA,aAAA;EACA,eAAA;EACA,WAAA;AChGA;ADiGA;EACA,WAAA;AC/FA;ADiGA;EACA,6BAAA;EACA,aAAA;AC/FA;AD6FA;EACA,8BAAA;EACA,aAAA;AC3FA;ADyFA;EACA,cAAA;EACA,aAAA;ACvFA;ADqFA;EACA,6BAAA;EACA,aAAA;ACnFA;ADiFA;EACA,6BAAA;EACA,aAAA;AC/EA;AD6EA;EACA,cAAA;EACA,aAAA;AC3EA;ADyEA;EACA,8BAAA;EACA,aAAA;ACvEA;ADqEA;EACA,6BAAA;EACA,aAAA;ACnEA;ADiEA;EACA,cAAA;EACA,aAAA;AC/DA;AD6DA;EACA,6BAAA;EACA,aAAA;AC3DA;ADyDA;EACA,6BAAA;EACA,aAAA;ACvDA;ADqDA;EACA,eAAA;EACA,aAAA;ACnDA;ADqDA;EACA,mBAAA;ACnDA;ADoDA;EACA,WAAA;EACA,aAAA;EACA,eAAA;AClDA;ADoDA;EACA,cAAA;EACA,kBAAA;AClDA;ADoDA;;;EAGA,gBAAA;AClDA;ADmDA;EACA,yBAAA;EACA,WAAA;ACjDA;ADkDA;;;;;;EAMA,YAAA;EACA,WAAA;EACA,sBAAA;AChDA","file":"Vueder.vue","sourcesContent":["<template>\n    <div class=\"form-builder\">\n        <form v-bind=\"attrs\">\n            <fieldset v-for=\"(fieldset, key) in parse(fieldsets, {fieldsets, model})\" :key=\"key\" v-bind=\"parse(fieldset.attrs, {fieldsets, fieldset, model})\" v-on=\"parse(fieldset.events, {fieldsets, fieldset, model})\">\n                <legend v-if=\"fieldset.legend\" v-bind=\"parse(fieldset.legend.attrs, {fieldsets, fieldset, model})\" v-on=\"parse(fieldset.events, {fieldsets, fieldset, model})\">{{fieldset.legend.text}}</legend>\n                <template v-if=\"fieldset && fieldset.fields\">\n                    <div class=\"fields\">\n                        <div class=\"field\" :data-error=\"validate(field)\" v-for=\"(field, key_field) in parse(fieldset.fields, {fieldsets, fieldset, model})\" :key=\"key_field\" v-bind=\"parse(field.attrs, {fieldsets, fieldset, field, model})\" v-on=\"parse(field.events, {fieldsets, fieldset, field, model})\">\n                            <label v-bind=\"parse(field.attrs, {fieldsets, fieldset, field, model})\" v-on=\"parse(field.label.events, {fieldsets, fieldset, field, model})\" v-if=\"field.label && field.type != 'button'\" v-html=\"field.label.text\"></label>\n                            <div v-bind=\"parse(field.container_attrs, {fieldsets, fieldset, field, model})\" v-on=\"parse(field.container_attrs, {fieldsets, fieldset, field, model})\">\n                                <template v-if=\"field.type == 'select'\">\n                                    <select v-bind=\"field.input_attrs\" v-on=\"parse(field.events, {fieldsets, fieldset, field, model})\" :name=\"field.name || key_field\" v-model=\"field.value\" @change=\"model[field.name] = field.value\">\n                                        <template v-if=\"field.options\">\n                                            <option v-for=\"(option, key_option) in parse(field.options, {fieldsets, fieldset, field, model})\" :key=\"key_option\" :value=\"option.value\">\n                                                {{option.label.text}}\n                                            </option>\n                                        </template>\n                                    </select>\n                                </template>\n                                <template v-if=\"field.type == 'radio' && field.options\">\n                                    <label v-for=\"(option, key_option) in parse(field.options, {fieldsets, fieldset, field, model})\" :key=\"key_option\" :value=\"option.value\" v-bind=\"parse(option.attrs, {fieldsets, fieldset, field, model, option})\" v-on=\"parse(option.events, {fieldsets, fieldset, field, model, option})\">\n                                        <input v-bind=\"parse(field.input_attrs, {fieldsets, fieldset, field, model})\" v-on=\"parse(field.events, {fieldsets, fieldset, field, model})\" type=\"radio\" :value=\"option.value\" v-model=\"field.value\" @input=\"model[field.name] = field.value\" /> <span>{{option.label.text}}</span>\n                                    </label>\n                                </template>\n                                <template v-if=\"field.type == 'text' || field.type == 'password' || field.type == 'email' || field.type == 'tel' || field.type == 'number'\">\n                                    <input v-bind=\"parse(field.input_attrs, {fieldsets, fieldset, field, model})\" v-on=\"parse(field.events, {fieldsets, fieldset, field, model})\"  :type=\"field.type\" v-model=\"field.value\" @input=\"model[field.name] = field.value\" />\n                                </template>\n                                <template v-if=\"field.type == 'textarea'\">\n                                    <textarea v-bind=\"parse(field.input_attrs, {fieldsets, fieldset, field, model})\" v-on=\"parse(field.events, {fieldsets, fieldset, field, model})\" v-model=\"field.value\" @input=\"model[field.name] = field.value\"></textarea>\n                                </template>\n                                <template v-if=\"field.type == 'component'\">\n                                    <component v-bind=\"parse(field.input_attrs, {fieldsets, fieldset, field, model})\" v-on=\"parse(field.events, {fieldsets, fieldset, field, model})\" :is=\"field.component\" />\n                                </template>\n                                <template v-if=\"field.type == 'button'\">\n                                    <button v-bind=\"parse(field.input_attrs, {fieldsets, fieldset, field, model})\" v-on=\"parse(field.events, {fieldsets, fieldset, field, model})\" v-html=\"field.label.text\"></button>\n                                </template>\n                            </div>\n                        </div>\n                    </div>\n                </template>\n            </fieldset>\n        </form>\n    </div>\n</template>\n\n<script>\n/* eslint-disable */\nimport validate from 'validate.js'\nexport default {\n    props: {\n        attrs: {},\n        form: {}\n    },\n    computed: {\n        fieldsets: {\n            get() {\n                return this.form\n            },\n            set(newValue) {\n\n            }\n        }\n    },\n    data() {\n        return {\n            model: {}\n        }\n    },\n    mounted() {\n        if(sessionStorage.fieldsets) {\n            this.fieldsets = JSON.parse(sessionStorage.fieldsets)\n        }\n    },\n    methods: {\n        validate(field) {\n            return validate.single(field.value, field.validations)\n        },\n        parse(input, params) {\n            if(typeof input == 'function') {\n                return input(params)\n            }\n            return input\n        }\n    },\n    watch: {\n        fieldsets: {\n            deep: true,\n            handler() {\n                sessionStorage.fieldsets = JSON.stringify(this.fieldsets)\n                this.$emit('modified', this.model)\n            }\n        }\n    }\n}\n</script>\n\n<style lang=\"stylus\" scoped>\n.form-builder\n    *\n        box-sizing border-box\n.row\n  display flex\n  flex-wrap wrap \n  width 100%\n[class*=\"col-\"]\n  width 100%\nfor i in 1..12\n  .col-{i}\n    max-width unit(100% * (i / 12), '%')\n    padding 15px\nform\n    fieldset\n        margin-bottom 15px\n        .fields\n            width 100%\n            display flex\n            flex-wrap wrap\n            .field\n                label\n                    display block\n                    margin-bottom 5px\n                &[data-error]\n                    input\n                    select\n                    textarea\n                        background #faa\n                    &:after\n                        content attr(data-error)\n                        color red\n            select\n            [type=\"text\"]\n            [type=\"password\"]\n            [type=\"number\"]\n            [type=\"email\"]\n            [type=\"tel\"]\n                height 30px\n                width 100%\n                border 1px solid #aaa\n</style>",".form-builder * {\n  box-sizing: border-box;\n}\n.row {\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n[class*=\"col-\"] {\n  width: 100%;\n}\n.col-1 {\n  max-width: 8.333333333333332%;\n  padding: 15px;\n}\n.col-2 {\n  max-width: 16.666666666666664%;\n  padding: 15px;\n}\n.col-3 {\n  max-width: 25%;\n  padding: 15px;\n}\n.col-4 {\n  max-width: 33.33333333333333%;\n  padding: 15px;\n}\n.col-5 {\n  max-width: 41.66666666666667%;\n  padding: 15px;\n}\n.col-6 {\n  max-width: 50%;\n  padding: 15px;\n}\n.col-7 {\n  max-width: 58.333333333333336%;\n  padding: 15px;\n}\n.col-8 {\n  max-width: 66.66666666666666%;\n  padding: 15px;\n}\n.col-9 {\n  max-width: 75%;\n  padding: 15px;\n}\n.col-10 {\n  max-width: 83.33333333333334%;\n  padding: 15px;\n}\n.col-11 {\n  max-width: 91.66666666666666%;\n  padding: 15px;\n}\n.col-12 {\n  max-width: 100%;\n  padding: 15px;\n}\nform fieldset {\n  margin-bottom: 15px;\n}\nform fieldset .fields {\n  width: 100%;\n  display: flex;\n  flex-wrap: wrap;\n}\nform fieldset .fields .field label {\n  display: block;\n  margin-bottom: 5px;\n}\nform fieldset .fields .field[data-error] input,\nform fieldset .fields .field[data-error] select,\nform fieldset .fields .field[data-error] textarea {\n  background: #faa;\n}\nform fieldset .fields .field[data-error]:after {\n  content: attr(data-error);\n  color: #f00;\n}\nform fieldset .fields select,\nform fieldset .fields [type=\"text\"],\nform fieldset .fields [type=\"password\"],\nform fieldset .fields [type=\"number\"],\nform fieldset .fields [type=\"email\"],\nform fieldset .fields [type=\"tel\"] {\n  height: 30px;\n  width: 100%;\n  border: 1px solid #aaa;\n}\n"]}, media: undefined });
+        inject("data-v-08913a9e_0", { source: ".form-builder *[data-v-08913a9e] {\n  box-sizing: border-box;\n}\n.row[data-v-08913a9e] {\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n[class*=\"col-\"][data-v-08913a9e] {\n  width: 100%;\n}\n.col-1[data-v-08913a9e] {\n  max-width: 8.333333333333332%;\n  padding: 15px;\n}\n.col-2[data-v-08913a9e] {\n  max-width: 16.666666666666664%;\n  padding: 15px;\n}\n.col-3[data-v-08913a9e] {\n  max-width: 25%;\n  padding: 15px;\n}\n.col-4[data-v-08913a9e] {\n  max-width: 33.33333333333333%;\n  padding: 15px;\n}\n.col-5[data-v-08913a9e] {\n  max-width: 41.66666666666667%;\n  padding: 15px;\n}\n.col-6[data-v-08913a9e] {\n  max-width: 50%;\n  padding: 15px;\n}\n.col-7[data-v-08913a9e] {\n  max-width: 58.333333333333336%;\n  padding: 15px;\n}\n.col-8[data-v-08913a9e] {\n  max-width: 66.66666666666666%;\n  padding: 15px;\n}\n.col-9[data-v-08913a9e] {\n  max-width: 75%;\n  padding: 15px;\n}\n.col-10[data-v-08913a9e] {\n  max-width: 83.33333333333334%;\n  padding: 15px;\n}\n.col-11[data-v-08913a9e] {\n  max-width: 91.66666666666666%;\n  padding: 15px;\n}\n.col-12[data-v-08913a9e] {\n  max-width: 100%;\n  padding: 15px;\n}\nform fieldset[data-v-08913a9e] {\n  margin-bottom: 15px;\n}\nform fieldset .fields[data-v-08913a9e] {\n  width: 100%;\n  display: flex;\n  flex-wrap: wrap;\n}\nform fieldset .fields .field label[data-v-08913a9e] {\n  display: block;\n  margin-bottom: 5px;\n}\nform fieldset .fields .field[data-error] input[data-v-08913a9e],\nform fieldset .fields .field[data-error] select[data-v-08913a9e],\nform fieldset .fields .field[data-error] textarea[data-v-08913a9e] {\n  background: #faa;\n}\nform fieldset .fields .field[data-error][data-v-08913a9e]:after {\n  content: attr(data-error);\n  color: #f00;\n}\nform fieldset .fields select[data-v-08913a9e],\nform fieldset .fields [type=\"text\"][data-v-08913a9e],\nform fieldset .fields [type=\"password\"][data-v-08913a9e],\nform fieldset .fields [type=\"number\"][data-v-08913a9e],\nform fieldset .fields [type=\"email\"][data-v-08913a9e],\nform fieldset .fields [type=\"tel\"][data-v-08913a9e] {\n  height: 30px;\n  width: 100%;\n  border: 1px solid #aaa;\n}\n", map: {"version":3,"sources":["/home/everaldoreis/public_html/wordpress/vueder/src/Vueder.vue","Vueder.vue"],"names":[],"mappings":"AAuFA;EACA,sBAAA;ACtFA;ADuFA;EACA,aAAA;EACA,eAAA;EACA,WAAA;ACrFA;ADsFA;EACA,WAAA;ACpFA;ADsFA;EACA,6BAAA;EACA,aAAA;ACpFA;ADkFA;EACA,8BAAA;EACA,aAAA;AChFA;AD8EA;EACA,cAAA;EACA,aAAA;AC5EA;AD0EA;EACA,6BAAA;EACA,aAAA;ACxEA;ADsEA;EACA,6BAAA;EACA,aAAA;ACpEA;ADkEA;EACA,cAAA;EACA,aAAA;AChEA;AD8DA;EACA,8BAAA;EACA,aAAA;AC5DA;AD0DA;EACA,6BAAA;EACA,aAAA;ACxDA;ADsDA;EACA,cAAA;EACA,aAAA;ACpDA;ADkDA;EACA,6BAAA;EACA,aAAA;AChDA;AD8CA;EACA,6BAAA;EACA,aAAA;AC5CA;AD0CA;EACA,eAAA;EACA,aAAA;ACxCA;AD0CA;EACA,mBAAA;ACxCA;ADyCA;EACA,WAAA;EACA,aAAA;EACA,eAAA;ACvCA;ADyCA;EACA,cAAA;EACA,kBAAA;ACvCA;ADyCA;;;EAGA,gBAAA;ACvCA;ADwCA;EACA,yBAAA;EACA,WAAA;ACtCA;ADuCA;;;;;;EAMA,YAAA;EACA,WAAA;EACA,sBAAA;ACrCA","file":"Vueder.vue","sourcesContent":["<template>\n    <div class=\"form-builder\">\n        <form v-bind=\"parse(form.attrs, {model})\" v-on=\"parse(form.events, {form, model})\">\n            <fieldset v-for=\"(fieldset, key) in parse(form.fieldsets, {form, model})\" :key=\"key\" v-bind=\"parse(fieldset.attrs, {form, fieldset, model})\" v-on=\"parse(fieldset.events, {form, fieldset, model})\">\n                <legend v-if=\"fieldset.legend\" v-bind=\"parse(fieldset.legend.attrs, {form, fieldset, model})\" v-on=\"parse(fieldset.events, {form, fieldset, model})\">{{fieldset.legend.text}}</legend>\n                <template v-if=\"fieldset && fieldset.fields\">\n                    <div class=\"fields\">\n                        <div class=\"field\" :data-error=\"validate(field)\" v-for=\"(field, key_field) in parse(fieldset.fields, {form, fieldset, model})\" :key=\"key_field\" v-bind=\"parse(field.attrs, {form, fieldset, field, model})\" v-on=\"parse(field.events, {form, fieldset, field, model})\">\n                            <label v-bind=\"parse(field.attrs, {form, fieldset, field, model})\" v-on=\"parse(field.label.events, {form, fieldset, field, model})\" v-if=\"field.label && field.type != 'button'\" v-html=\"field.label.text\"></label>\n                            <div v-bind=\"parse(field.container_attrs, {form, fieldset, field, model})\" v-on=\"parse(field.container_attrs, {form, fieldset, field, model})\">\n                                <template v-if=\"field.type == 'select'\">\n                                    <select v-bind=\"field.input_attrs\" v-on=\"parse(field.events, {form, fieldset, field, model})\" :name=\"field.name || key_field\" v-model=\"field.value\" @change=\"model[field.name] = field.value\">\n                                        <template v-if=\"field.options\">\n                                            <option v-for=\"(option, key_option) in parse(field.options, {form, fieldset, field, model})\" :key=\"key_option\" :value=\"option.value\">\n                                                {{option.label.text}}\n                                            </option>\n                                        </template>\n                                    </select>\n                                </template>\n                                <template v-if=\"field.type == 'radio' && field.options\">\n                                    <label v-for=\"(option, key_option) in parse(field.options, {form, fieldset, field, model})\" :key=\"key_option\" :value=\"option.value\" v-bind=\"parse(option.attrs, {form, fieldset, field, model, option})\" v-on=\"parse(option.events, {form, fieldset, field, model, option})\">\n                                        <input v-bind=\"parse(field.input_attrs, {form, fieldset, field, model})\" v-on=\"parse(field.events, {form, fieldset, field, model})\" type=\"radio\" :value=\"option.value\" v-model=\"field.value\" @input=\"model[field.name] = field.value\" /> <span>{{option.label.text}}</span>\n                                    </label>\n                                </template>\n                                <template v-if=\"field.type == 'text' || field.type == 'password' || field.type == 'email' || field.type == 'tel' || field.type == 'number'\">\n                                    <input v-bind=\"parse(field.input_attrs, {form, fieldset, field, model})\" v-on=\"parse(field.events, {form, fieldset, field, model})\"  :type=\"field.type\" v-model=\"field.value\" @input=\"model[field.name] = field.value\" />\n                                </template>\n                                <template v-if=\"field.type == 'textarea'\">\n                                    <textarea v-bind=\"parse(field.input_attrs, {form, fieldset, field, model})\" v-on=\"parse(field.events, {form, fieldset, field, model})\" v-model=\"field.value\" @input=\"model[field.name] = field.value\"></textarea>\n                                </template>\n                                <template v-if=\"field.type == 'component'\">\n                                    <component v-bind=\"parse(field.input_attrs, {form, fieldset, field, model})\" v-on=\"parse(field.events, {form, fieldset, field, model})\" :is=\"field.component\" />\n                                </template>\n                                <template v-if=\"field.type == 'button'\">\n                                    <button v-bind=\"parse(field.input_attrs, {form, fieldset, field, model})\" v-on=\"parse(field.events, {form, fieldset, field, model})\" v-html=\"field.label.text\"></button>\n                                </template>\n                            </div>\n                        </div>\n                    </div>\n                </template>\n            </fieldset>\n        </form>\n    </div>\n</template>\n\n<script>\n/* eslint-disable */\nimport validate from 'validate.js'\nexport default {\n    props: {\n        form: {}\n    },\n    data() {\n        return {\n            model: {}\n        }\n    },\n    mounted() {\n        if(sessionStorage.form) {\n            this.form = JSON.parse(sessionStorage.form)\n        }\n    },\n    methods: {\n        validate(field) {\n            return validate.single(field.value, field.validations)\n        },\n        parse(input, params) {\n            if(typeof input == 'function') {\n                return input(params)\n            }\n            return input\n        }\n    },\n    watch: {\n        form: {\n            deep: true,\n            handler() {\n                sessionStorage.form = JSON.stringify(this.form)\n                this.$emit('modified', this.model)\n            }\n        }\n    }\n}\n</script>\n\n<style lang=\"stylus\" scoped>\n.form-builder\n    *\n        box-sizing border-box\n.row\n  display flex\n  flex-wrap wrap \n  width 100%\n[class*=\"col-\"]\n  width 100%\nfor i in 1..12\n  .col-{i}\n    max-width unit(100% * (i / 12), '%')\n    padding 15px\nform\n    fieldset\n        margin-bottom 15px\n        .fields\n            width 100%\n            display flex\n            flex-wrap wrap\n            .field\n                label\n                    display block\n                    margin-bottom 5px\n                &[data-error]\n                    input\n                    select\n                    textarea\n                        background #faa\n                    &:after\n                        content attr(data-error)\n                        color red\n            select\n            [type=\"text\"]\n            [type=\"password\"]\n            [type=\"number\"]\n            [type=\"email\"]\n            [type=\"tel\"]\n                height 30px\n                width 100%\n                border 1px solid #aaa\n</style>",".form-builder * {\n  box-sizing: border-box;\n}\n.row {\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n[class*=\"col-\"] {\n  width: 100%;\n}\n.col-1 {\n  max-width: 8.333333333333332%;\n  padding: 15px;\n}\n.col-2 {\n  max-width: 16.666666666666664%;\n  padding: 15px;\n}\n.col-3 {\n  max-width: 25%;\n  padding: 15px;\n}\n.col-4 {\n  max-width: 33.33333333333333%;\n  padding: 15px;\n}\n.col-5 {\n  max-width: 41.66666666666667%;\n  padding: 15px;\n}\n.col-6 {\n  max-width: 50%;\n  padding: 15px;\n}\n.col-7 {\n  max-width: 58.333333333333336%;\n  padding: 15px;\n}\n.col-8 {\n  max-width: 66.66666666666666%;\n  padding: 15px;\n}\n.col-9 {\n  max-width: 75%;\n  padding: 15px;\n}\n.col-10 {\n  max-width: 83.33333333333334%;\n  padding: 15px;\n}\n.col-11 {\n  max-width: 91.66666666666666%;\n  padding: 15px;\n}\n.col-12 {\n  max-width: 100%;\n  padding: 15px;\n}\nform fieldset {\n  margin-bottom: 15px;\n}\nform fieldset .fields {\n  width: 100%;\n  display: flex;\n  flex-wrap: wrap;\n}\nform fieldset .fields .field label {\n  display: block;\n  margin-bottom: 5px;\n}\nform fieldset .fields .field[data-error] input,\nform fieldset .fields .field[data-error] select,\nform fieldset .fields .field[data-error] textarea {\n  background: #faa;\n}\nform fieldset .fields .field[data-error]:after {\n  content: attr(data-error);\n  color: #f00;\n}\nform fieldset .fields select,\nform fieldset .fields [type=\"text\"],\nform fieldset .fields [type=\"password\"],\nform fieldset .fields [type=\"number\"],\nform fieldset .fields [type=\"email\"],\nform fieldset .fields [type=\"tel\"] {\n  height: 30px;\n  width: 100%;\n  border: 1px solid #aaa;\n}\n"]}, media: undefined });
 
       };
       /* scoped */
-      var __vue_scope_id__ = "data-v-988713d6";
+      var __vue_scope_id__ = "data-v-08913a9e";
       /* module identifier */
       var __vue_module_identifier__ = undefined;
       /* functional template */

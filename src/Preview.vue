@@ -15,18 +15,23 @@ export default {
     data() {
         return {
             form: {
-                dados: {
-                    legend: {
-                        text: 'Dados'
-                    },
-                    fields: {
-                        nome: {
-                            type: 'text',
-                            label: 'Nome',
-                            events(params) {
-                                return {
-                                    click(event) {
-                                        console.log(params)
+                attrs: {},
+                events: {},
+                fieldsets: {
+                    dados: {
+                        legend: {
+                            text: 'Dados'
+                        },
+                        fields: {
+                            nome: {
+                                type: 'text',
+                                label: 'Nome',
+                                name: 'nome',
+                                events(params) {
+                                    return {
+                                        click(event) {
+                                            console.log(params)
+                                        }
                                     }
                                 }
                             }
