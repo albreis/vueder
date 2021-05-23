@@ -64,7 +64,6 @@ export default {
                 return this.model
             },
             set(newValue) {
-                this.model = newValue
             }
         }
     },
