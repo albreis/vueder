@@ -1,6 +1,7 @@
 {
   "name": "@ersolucoesweb/vueder",
-  "version": "3.2.1",
+  "version": "3.2.2",
+  "private": false,
   "description": "Criador de formulário baseado em objetos para VueJS",
   "main": "index.js",
   "module": "dist/vueder.esm.js",
@@ -34,6 +35,10 @@
     "builder"
   ],
   "author": "ER Soluções Web LTDA <contato@ersolucoesweb.com.br>",
+  "contributors": [
+    {"name": "Albreis - Design & Programação", "email": "contato@albreis.com.br", "url": "https://albreis.com.br"},
+    {"name": "Everaldo Programador", "email": "contato@everaldoreis.com.br", "url": "https://everaldoreis.com.br"}
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/albreis/vueder/issues"
@@ -56,5 +61,8 @@
   },
   "dependencies": {
     "validate.js": "^0.13.1"
+  },
+  "directories": {
+    "doc": "docs"
   }
 }

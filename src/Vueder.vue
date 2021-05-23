@@ -78,6 +78,7 @@ export default {
             deep: true,
             handler() {
                 sessionStorage.fieldsets = JSON.stringify(this.fieldsets)
+                this.$emit('modified', model)
             }
         }
     }
