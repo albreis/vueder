@@ -9,7 +9,7 @@
                             <label v-bind="parse(field.label.attrs, {form: _form, fieldset, field, model: _model})" v-on="parse(field.label.events, {form: _form, fieldset, field, model: _model})" v-if="field.label && field.type != 'button'" v-html="field.label.text"></label>
                             <div class="field-container" v-bind="parse(field.container_attrs, {form: _form, fieldset, field, model: _model})" v-on="parse(field.container_attrs, {form: _form, fieldset, field, model: _model})">
                                 <template v-if="field.type == 'select'">
-                                    <select v-bind="parse(field.input_attrs, {form: _form, fieldset, field, model: _model})" v-on="parse(field.input_events, {form: _form, fieldset, field, model: _model})" :name="field.name || key_field" v-model="field.value" @change="model[field.name] = field.value">
+                                    <select v-bind="parse(field.input_attrs, {form: _form, fieldset, field, model: _model})" v-on="parse(field.input_events, {form: _form, fieldset, field, model: _model})" :name="field.name || key_field" v-model="field.value" @change="_model[field.name] = field.value">
                                         <template v-if="field.options">
                                             <option v-for="(option, key_option) in parse(field.options, {form: _form, fieldset, field, model: _model})" :key="key_option" :value="option.value">
                                                 {{option.label.text}}
@@ -18,15 +18,15 @@
                                     </select>
                                 </template>
                                 <template v-if="(field.type == 'radio' || field.type == 'checkbox') && field.options">
-                                    <label class="radio-container" v-for="(option, key_option) in parse(field.options, {form: _form, fieldset, field, model: _model})" :key="key_option" :value="option.value" v-bind="parse(option.attrs, {form: _form, fieldset, field, _model, option})" v-on="parse(option.events, {form: _form, fieldset, field, _model, option})">
-                                        <input v-bind="parse(field.input_attrs, {form: _form, fieldset, field, model: _model})" v-on="parse(field.input_events, {form: _form, fieldset, field, model: _model})" :type="field.type" :value="option.value" v-model="field.value" @change="model[field.name] = field.value" /> <span>{{option.label.text}}</span>
+                                    <label class="radio-container" v-for="(option, key_option) in parse(field.options, {form: _form, fieldset, field, model: _model})" :key="key_option" :value="option.value" v-bind="parse(option.attrs, {form: _form, fieldset, field, model: _model, option})" v-on="parse(option.events, {form: _form, fieldset, field, model: _model, option})">
+                                        <input v-bind="parse(field.input_attrs, {form: _form, fieldset, field, model: _model})" v-on="parse(field.input_events, {form: _form, fieldset, field, model: _model})" :type="field.type" :value="option.value" v-model="field.value" @change="_model[field.name] = field.value" /> <span>{{option.label.text}}</span>
                                     </label>
                                 </template>
                                 <template v-if="field.type == 'text' || field.type == 'password' || field.type == 'email' || field.type == 'tel' || field.type == 'number'">
-                                    <input v-bind="parse(field.input_attrs, {form: _form, fieldset, field, model: _model})" v-on="parse(field.input_events, {form: _form, fieldset, field, model: _model})"  :type="field.type" v-model="field.value" @input="model[field.name] = field.value" />
+                                    <input v-bind="parse(field.input_attrs, {form: _form, fieldset, field, model: _model})" v-on="parse(field.input_events, {form: _form, fieldset, field, model: _model})"  :type="field.type" v-model="field.value" @input="_model[field.name] = field.value" />
                                 </template>
                                 <template v-if="field.type == 'textarea'">
-                                    <textarea v-bind="parse(field.input_attrs, {form: _form, fieldset, field, model: _model})" v-on="parse(field.input_events, {form: _form, fieldset, field, model: _model})" v-model="field.value" @input="model[field.name] = field.value"></textarea>
+                                    <textarea v-bind="parse(field.input_attrs, {form: _form, fieldset, field, model: _model})" v-on="parse(field.input_events, {form: _form, fieldset, field, model: _model})" v-model="field.value" @input="_model[field.name] = field.value"></textarea>
                                 </template>
                                 <template v-if="field.type == 'component'">
                                     <component v-bind="parse(field.input_attrs, {form: _form, fieldset, field, model: _model})" v-on="parse(field.input_events, {form: _form, fieldset, field, model: _model})" :is="field.component" />
