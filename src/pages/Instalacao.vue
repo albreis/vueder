@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>Para utilizar o Vueder diretamente no navegador basta adicionar o seguinte:</p>
-    <iframe width="100%" height="500" src="//jsfiddle.net/ersolucoesweb/f15kqacv/latest/embedded/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+    <iframe width="100%" height="500" src="//jsfiddle.net/ersolucoesweb/f15kqacv/embedded/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
   </div>
 </template>
 

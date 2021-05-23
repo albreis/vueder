@@ -81,7 +81,7 @@ let Form = {
 
 Exemplo:
 
-http://jsfiddle.net/ersolucoesweb/f15kqacv/latest
+http://jsfiddle.net/ersolucoesweb/f15kqacv
 
 Para endetender como as validações funcionam veja: https://validatejs.org/
 
