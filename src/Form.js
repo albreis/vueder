@@ -1,10 +1,8 @@
 /* eslint-disable */
-import axios from 'axios'
 export default {
     events: {
-        'submit': function(event) {
-            event.preventDefault()
-            alert(123)
+        submit(event) {
+            event.preventDefault();
         }
     },
     fieldsets: {
@@ -23,6 +21,7 @@ export default {
                     },
                     type: 'select',
                     name: 'tipo',
+                    value: 'apartamento',
                     attrs: {
                         class: 'col-6'
                     },
@@ -53,7 +52,7 @@ export default {
                     events(params) {}
                 },
                 finalidade: {
-                    type: 'radio',
+                    type: 'checkbox',
                     name: 'finalidade',
                     label: {
                         text: 'Este imóvel está disponível para?',
@@ -89,112 +88,8 @@ export default {
                         }
                         params.field.options = (params) => options
                     },
-                    events(params) {}
-                }
-            }
-        },
-        endereco: {
-            legend: {
-                text: 'Endeço do Imóvel'
-            },
-            fields: {
-                estado: {
-                    type: 'select',
-                    label: {
-                        text: 'Estado',
-                        attrs: {
-                        }
-                    },
-                    name: 'estado',
-                    value: '',
-                    container_attrs: {
-                    },
-                    attrs: {
-                        class: 'col-4'
-                    },
-                    options: async function(params) { // eslint-disable-line
-                        var res = await axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
-                        let estados = {}
-                        for(let i in res.data) {
-                            estados[i] = {label: {text: res.data[i].nome}, value: res.data[i].sigla}
-                        }
-                        params.field.options = (params) => estados
-                    },
-                    events (params) { // eslint-disable-line
-                        return {
-                            change: async function(event) {
-                                console.log(params)
-                                let cidades = {}
-                                if(params.field.value) {
-                                    var res = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${params.field.value.toLowerCase()}/municipios?orderBy=nome`)
-                                    for(let i in res.data) {
-                                        cidades[i] = {label: {text: res.data[i].nome}, value: res.data[i].nome}
-                                    }
-                                }
-                                params.fieldset.fields.cidade.options = () => cidades
-                            }
-                        }
-                    }
-                },
-                cidade: {
-                    type: 'select',
-                    name: 'cidade',
-                    label: {
-                        text: 'Cidade',
-                        attrs: {
-                        }
-                    },
-                    value: '',
-                    container_attrs: {
-                    },
-                    attrs: {
-                        class: 'col-4'
-                    },
-                    options: async function(params) { // eslint-disable-line
-                        return {}
-                    },
-                    events(params) {}
-                },
-                bairro: {
-                    container_attrs: {
-                    },
-                    label: {
-                        text: 'Bairro',
-                        attrs: {
-                        }
-                    },
-                    attrs: {
-                        class: 'col-4'
-                    },
-                    type: 'text',
-                    name: 'bairro',
-                    value: '',
-                    validations: {
-                        length: {
-                            minimum: 3,
-                            message: 'Este campo é obrigatório'
-                        }
-                    },
-                    events(params) {}
-                },
-                button: {
-                    type: 'button',
-                    label: {
-                        text: 'ENVIAR'
-                    },
-                    attrs: {
-                        class: 'col-12'
-                    },
-                    input_attrs: {
-                        type: 'submit',
-                        value: 'Enviar'
-                    },
-                    validations: {},
-                    events(params) {
-                        return {
-                            click() {
-                            }
-                        }
+                    events: {
+                        click: "alert(1233)"
                     }
                 }
             }

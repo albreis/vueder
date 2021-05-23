@@ -1,6 +1,6 @@
 {
   "name": "@ersolucoesweb/vueder",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "private": false,
   "description": "Criador de formulário baseado em objetos para VueJS",
   "main": "index.js",
@@ -64,6 +64,8 @@
     "rollup-plugin-vue": "^5.0.1",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
+    "ts-loader": "^6.2.2",
+    "typescript": "^4.2.4",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^5.37.1"
