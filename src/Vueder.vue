@@ -48,19 +48,12 @@
 import validate from 'validate.js'
 export default {
     props: {
-        method: 'post',
-        action: '',
-        enctype: '',
-        form: {},
-        model: {}
+        attrs: {},
+        fieldsets: {}
     },
-    computed: {
-        fieldsets: {
-            get() {
-                return this.form
-            },
-            set(newValue) {
-            } 
+    data() {
+        return {
+            model: {}
         }
     },
     mounted() {
