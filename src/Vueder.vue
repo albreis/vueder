@@ -49,7 +49,10 @@ import validate from 'validate.js'
 export default {
     props: {
         /**
-         * Form a ser usado para gerar o HTML
+         * @description Form a ser usado para gerar o HTML
+         * @type Object
+         * @default null
+         * @required
          */
         form: {},
         model: {}

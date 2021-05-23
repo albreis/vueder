@@ -5,7 +5,7 @@
 <!-- @vuese:Vueder:props:start -->
 |Name|Description|Type|Required|Default|
 |---|---|---|---|---|
-|form|Form a ser usado para gerar o HTML|—|`false`|-|
+|form|null|—|`false`|-|
 |model|-|—|`false`|-|
 
 <!-- @vuese:Vueder:props:end -->
