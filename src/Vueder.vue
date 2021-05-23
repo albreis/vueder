@@ -6,7 +6,7 @@
                 <template v-if="fieldset">
                     <div class="fields" v-if="fieldset.fields">
                         <div class="field" :data-error="validate(field)" v-for="(field, key_field) in parse(fieldset.fields, {form: _form, fieldset, model: _model})" :key="key_field" v-bind="parse(field.attrs, {form: _form, fieldset, field, model: _model})" v-on="parse(field.events, {form: _form, fieldset, field, model: _model})">
-                            <label v-bind="parse(field.label.attrs, {form: _form, fieldset, field, model: _model})" v-on="parse(field.label.events, {form: _form, fieldset, field, model: _model})" v-if="field.label" v-html="field.label.text"></label>
+                            <label v-bind="parse(field.label.attrs, {form: _form, fieldset, field, model: _model})" v-on="parse(field.label.events, {form: _form, fieldset, field, model: _model})" v-if="field.label && field.type != 'button'" v-html="field.label.text"></label>
                             <div class="field-container" v-bind="parse(field.container_attrs, {form: _form, fieldset, field, model: _model})" v-on="parse(field.container_attrs, {form: _form, fieldset, field, model: _model})">
                                 <template v-if="field.type == 'select'">
                                     <select v-bind="parse(field.input_attrs, {form: _form, fieldset, field, model: _model})" v-on="parse(field.input_events, {form: _form, fieldset, field, model: _model})" :name="field.name || key_field" v-model="field.value" @change="model[field.name] = field.value">
