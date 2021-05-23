@@ -1,6 +1,6 @@
 {
   "name": "@ersolucoesweb/vueder",
-  "version": "6.4.0",
+  "version": "6.5.0",
   "private": false,
   "description": "Criador de formulário baseado em objetos para VueJS",
   "main": "index.js",
