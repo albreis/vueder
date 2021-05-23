@@ -1,6 +1,6 @@
 {
   "name": "@ersolucoesweb/vueder",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "private": false,
   "description": "Criador de formulário baseado em objetos para VueJS",
   "main": "index.js",
@@ -55,6 +55,7 @@
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
     "@rollup/plugin-commonjs": "^11.1.0",
+    "axios": "^0.21.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
