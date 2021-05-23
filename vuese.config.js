@@ -1,3 +1,4 @@
 exports.default = {
-    outDir: './docs'
+    outDir: './docs',
+    markdownFile: 'README'
 }
