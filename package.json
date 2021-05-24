@@ -1,6 +1,6 @@
 {
   "name": "@ersolucoesweb/vueder",
-  "version": "6.5.3",
+  "version": "7.0.0",
   "private": false,
   "description": "Criador de formulário baseado em objetos para VueJS",
   "author": "ER Soluções Web LTDA <contato@ersolucoesweb.com.br>",
@@ -8,7 +8,7 @@
     "serve": "vue-cli-service serve",
     "build": "npm run build:umd && npm run build:es && npm run build:unpkg && npm run build:doc",
     "lint": "vue-cli-service lint",
-    "build:doc": "vue-docgen -c docgen.config.js",
+    "build:doc": "vue-docgen -c docgen.config.js && npm run docs:build",
     "build:es": "rollup --config build/rollup.config.js --format es --file dist/vueder.esm.js",
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vueder.umd.js",
     "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vueder.min.js",

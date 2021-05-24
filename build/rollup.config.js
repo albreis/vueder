@@ -10,7 +10,6 @@ export default {
         exports: 'named',
     },
     plugins: [
-        vuedoc({ test: /\.vue$/, prefix: 'documentation' }),
         commonjs(),
         vue({
             css: true, // Dynamically inject css as a <style> tag
