@@ -53,8 +53,8 @@ export default {
         // Objeto que será usado para criar o formulário
         // @required
         // @type Object
-        form: {},
-        model: {}
+        form: Object,
+        model: Object
     },
     computed: {
         _form: {

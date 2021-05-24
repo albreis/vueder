@@ -2,22 +2,15 @@
 
 ## Props
 
-<!-- @vuese:Vueder:props:start -->
-|Name|Description|Type|Required|Default|
-|---|---|---|---|---|
-|form|Objeto que será usado para criar o formulário|—|`false`|-|
-|model|-|—|`false`|-|
-
-<!-- @vuese:Vueder:props:end -->
-
+| Prop name | Description | Type   | Values | Default |
+| --------- | ----------- | ------ | ------ | ------- |
+| form      |             | object | -      |         |
+| model     |             | object | -      |         |
 
 ## Events
 
-<!-- @vuese:Vueder:events:start -->
-|Event Name|Description|Parameters|
-|---|---|---|
-|modified|-|-|
+| Event name | Properties | Description |
+| ---------- | ---------- | ----------- |
+| modified   |            |
 
-<!-- @vuese:Vueder:events:end -->
-
-
+---
