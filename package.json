@@ -1,6 +1,6 @@
 {
   "name": "@ersolucoesweb/vueder",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "private": false,
   "description": "Criador de formulário baseado em objetos para VueJS",
   "author": "ER Soluções Web LTDA <contato@ersolucoesweb.com.br>",
@@ -12,8 +12,8 @@
     "build:es": "rollup --config build/rollup.config.js --format es --file dist/vueder.esm.js",
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vueder.umd.js",
     "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vueder.min.js",
-    "precommit:doc": "npm run build:doc && npm run docs:build && git add .",
-    "commit:doc": "git commit -m ",
+    "precommit:doc": "npm run build:doc && git add .",
+    "commit:doc": "git commit -m 'Updating docs'",
     "postcommit:doc": "git push",
     "precommit": "git add .",
     "commit": "git commit -m",

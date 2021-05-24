@@ -47,13 +47,20 @@
 /* eslint-disable */
 import validate from 'validate.js'
 export default {
-    // Componente para ciar formulários a partir de um objeto
+    /**
+     * Componente para ciar formulários a partir de um objeto
+     * 
+     */
     name: 'Vueder',
     props: {
-        // Objeto que será usado para criar o formulário
-        // @required
-        // @type Object
+        /**
+         * Objeto que irá gerar o formulário
+         * @required
+         */
         form: Object,
+        /**
+         * Model para ser usado pelo form
+         */
         model: Object
     },
     computed: {

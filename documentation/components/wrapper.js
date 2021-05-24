@@ -2,10 +2,10 @@
 
 ## Props
 
-| Prop name | Description | Type   | Values | Default |
-| --------- | ----------- | ------ | ------ | ------- |
-| form      |             | object | -      |         |
-| model     |             | object | -      |         |
+| Prop name | Description                                            | Type   | Values | Default |
+| --------- | ------------------------------------------------------ | ------ | ------ | ------- |
+| form      | Objeto que irá gerar o formulário<br/>`@required` true | object | -      |         |
+| model     | Model para ser usado pelo form                         | object | -      |         |
 
 ## Events
 
@@ -15,7 +15,7 @@
 
 ---
 
-<a href="https://github.com/albreis/vueder/edit/master/docs/src/wrapper.js" class="docgen-edit-link">Algo errado? Avise-nos!</a>
+<a href="https://github.com/albreis/vueder/edit/master/documentation/src/wrapper.js" class="docgen-edit-link">Algo errado? Avise-nos!</a>
 
 // Import vue component
 import component from './Vueder.vue';
